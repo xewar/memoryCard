@@ -3,9 +3,8 @@ import Card from './Card';
 import uniqid from 'uniqid';
 
 const CardContainer = props => {
-    {difficulty}= props;
-    let size = 9;
-   
+  const { difficulty } = props;
+
   let imgArray = Array(25)
     .fill()
     .map((element, index) => index + 3);
