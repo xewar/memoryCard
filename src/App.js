@@ -1,12 +1,14 @@
+import React, { useState } from 'react';
 import './App.css';
-import Card from './Card';
-import Scoreboard from './Scoreboard';
+import CardContainer from './CardContainer';
+import Header from './Header';
+
 function App() {
-  const displayCards = () => {};
+  const [difficulty, setDifficulty] = useState('easy');
   return (
     <div className="App">
-      <Scoreboard />
-      <div className="cardContainer">{displayCards()}</div>
+      <Header />
+      <CardContainer difficulty={difficulty} />
     </div>
   );
 }

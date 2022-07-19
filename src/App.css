@@ -1,0 +1,47 @@
+:root {
+  --text: #94a3b8;
+  --background: white;
+  --accent_0: rgba(0, 131, 138, 0.4);
+  --accent_1: rgba(0, 131, 138, 0.1);
+}
+.App {
+  display: grid;
+  /* margin-left: 3em;
+  margin-top: 1em; */
+  /* flex-direction: column; */
+}
+.header {
+  display: flex;
+  gap: 2em;
+  margin-top: 2em;
+  margin-left: 1em;
+}
+.headerText {
+  font-size: 2em;
+  color: var(--accent_0);
+}
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 5vw;
+  width: 60vw;
+  gap: 2em;
+  margin-left: 3em;
+}
+.memoryCard {
+  height: 100px;
+  width: 100px;
+  background-repeat: no-repeat;
+}
+button {
+  font-family: Karla;
+  width: 5em;
+  border: none;
+  background-color: var(--accent_1);
+}
+
+.difficultyLevel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
