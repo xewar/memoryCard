@@ -7,9 +7,10 @@ function Header() {
       <div className="headerText">Memory Cards</div>
       <Scoreboard />
       <div className="difficultyLevel">
-        <button className="easy">Easy</button>
-        <button className="medium">Medium</button>
-        <button className="hard">Hard</button>
+        <button className="easyButton">Easy</button>
+        <button className="mediumButton">Medium</button>
+        <button className="hardButton">Hard</button>
+        <button className="color">Color</button>
       </div>
     </div>
   );
