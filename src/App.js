@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './css/App.css';
 import CardContainer from './CardContainer';
 import Header from './Header';
 
@@ -8,6 +8,13 @@ function App() {
   const [size, setSize] = useState(9);
   const [color, setColor] = useState('single');
 
+  // if (difficulty === 'hard') {
+  //   setSize(25);
+  // } else if (difficulty === 'medium') {
+  //   setSize(16);
+  // } else {
+  //   setSize(9);
+  // }
   return (
     <div className="App">
       <Header />

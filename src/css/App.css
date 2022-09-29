@@ -1,9 +1,9 @@
 :root {
   --text: #94a3b8;
   --background: white;
-  --accent_0: rgba(0, 131, 138, 0.4);
-  --accent_1: rgba(0, 131, 138, 0.1);
-  --accent_2: rgba(0, 131, 138, 0.8);
+  --accent_0: rgba(50, 85, 164, 0.4);
+  --accent_1: rgba(50, 85, 1648, 0.1);
+  --accent_2: rgba(50, 85, 164, 0.8);
 }
 .App {
   display: grid;
@@ -14,42 +14,46 @@
 .header {
   display: flex;
   gap: 2em;
-  margin-top: 1.5em;
+  margin-top: 1.25em;
   margin-left: 1em;
 }
 .headerText {
-  font-size: 2em;
+  font-size: 2.5em;
   color: var(--accent_0);
   align-self: center;
+  flex-shrink: 2;
 }
 
 .scoreboard {
-  border: 1.5em solid var(--accent_1);
-  padding: 1em;
+  /* border: 1.5em solid var(--accent_1);
+  padding-top: 1em;
   display: flex;
   gap: 1.5em;
-  /* color: var(--accent_2); */
+  color: var(--accent_2); */
 }
 
 .difficultyLevel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-flow: dense;
   gap: 1.5em;
 }
 button {
   font-family: Karla;
-  width: 6em;
+  width: 10em;
+  height: 3em;
   border: none;
   background-color: var(--accent_1);
+  border-radius: 5%;
+  size: 1.5em;
 }
 button:hover {
   background-color: var(--accent_0);
 }
 
 .cardContainer {
-  margin-top: 2em;
-  margin-left: 10em;
+  margin-top: 3em;
+  margin-left: 6em;
   gap: 40px;
   display: grid;
   margin-bottom: 5em;
