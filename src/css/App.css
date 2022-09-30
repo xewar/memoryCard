@@ -4,7 +4,7 @@
   --accent_0: rgba(50, 85, 164, 0.4);
   --accent_1: rgba(50, 85, 164, 0.1);
   --accent_3: rgba(255, 72, 176, 0.1);
-  --accent_2: rgba(61, 85, 136, 0.4);
+  --accent_2: rgba(61, 85, 136, 0.5);
 }
 .App {
   display: grid;
@@ -12,11 +12,12 @@
 .headerDiv {
   margin-top: 1em;
   margin-left: 1em;
+  background-color: var(accent_0);
 }
 .headerText {
   font-size: 2.5em;
   font-weight: 500;
-  color: var(--accent_0);
+  color: var(--accent_2);
   align-self: center;
   flex-shrink: 2;
 }
@@ -27,7 +28,10 @@
   width: 8em;
   background-color: #fff;
 }
-
+.score {
+  display: flex;
+  justify-content: space-between;
+}
 .difficultyLevel {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -68,7 +72,13 @@ button:hover {
   font-size: 1.5em;
   font-weight: 500;
 }
+.instructionsSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
 .sidebar {
+  border: 0.2em solid var(--accent_2);
   width: 25vw;
   padding: 1em;
   display: flex;

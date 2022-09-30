@@ -1,6 +1,15 @@
 const birdData = {
   birds: [
     {
+      species: 'Ruddy Duck',
+      fileExt: 'ruddyDuck',
+      category: 'Waterfowl',
+      status: 'annual migrant',
+      frequency: 'common',
+      id: 0,
+      count: 0,
+    },
+    {
       species: 'American Bittern',
       fileExt: 'americanBittern',
       category: 'Bittern, Heron, Ibis',
@@ -160,15 +169,6 @@ const birdData = {
       status: 'annual migrant',
       frequency: 'common',
       id: 18,
-      count: 0,
-    },
-    {
-      species: 'Ruddy Duck',
-      fileExt: 'ruddyDuck',
-      category: 'Waterfowl',
-      status: 'annual migrant',
-      frequency: 'common',
-      id: 19,
       count: 0,
     },
   ],
