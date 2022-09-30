@@ -4,28 +4,26 @@ import uniqid from 'uniqid';
 import birdData from './birdData.js';
 
 const CardContainer = props => {
-  const { birdType, size } = props;
-  // const [randomBirdState, setRandomBirdState] = useState([
-  //   1, 2, 3, 4, 5, 6, 7, 8, 9,
-  // ]);
+  const { birdType, size, score } = props;
   const [randomBirdState, setRandomBirdState] = useState([]);
-  const [score, setScore] = useState(0);
 
   useEffect(() => {
-    console.log('here');
+    changeBirds();
   }, [score]);
 
   let birdsArray = birdData.birds;
   let changeBirds = () => {
-    // let randomBirds = [];
-    // let randomBirdGenerator = () =>
-    //   Math.floor(Math.random() * birdsArray.length);
-    // for (let i = 0; i <= randomBirdState.length; i++) {
-    //   randomBirds.push(randomBirdGenerator());
-    // }
-    // console.log(randomBirds.length);
-    // setRandomBirdState(prevState => randomBirds);
+    let randomBirds = [];
+    let randomBirdGenerator = () =>
+      Math.floor(Math.random() * birdsArray.length);
+    while (randomBirds.length < 9) {
+      let newBirdId = randomBirdGenerator();
+      if (randomBirds.indexOf(newBirdId) == -1) randomBirds.push(newBirdId);
+    }
+    setRandomBirdState(prevState => randomBirds);
   };
+
+  const updateScore = () => {};
   const displayCards = () => {
     return birdsArray.map(bird => {
       if (randomBirdState.includes(bird.id)) {
@@ -34,7 +32,7 @@ const CardContainer = props => {
             key={uniqid()}
             url={`./images/birdsOfCP/${bird.fileExt}1.jpeg`}
             birdType={bird.species}
-            changeBirds={changeBirds}
+            updateScore={props.updateScore}
           />
         );
       }

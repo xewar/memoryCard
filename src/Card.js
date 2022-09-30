@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
 const Card = props => {
-  const [clicked, setClicked] = useState(false);
   const { url, birdType } = props;
   return (
     <img
-      onClick={props.changeBirds}
+      onClick={props.updateScore}
       className={`memoryCard ${birdType}`}
       src={url}
     ></img>

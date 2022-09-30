@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Scoreboard from './Scoreboard';
 
-const Instructions = () => {
+const Instructions = props => {
   return (
     <div className="sidebar">
       <div className="difficultyLevel">
@@ -10,7 +10,7 @@ const Instructions = () => {
         <button className="birdType">All Types of Birds</button>
         <button className="birdType">Try again</button>
       </div>
-      <Scoreboard />
+      <Scoreboard score={props.score} highScore={props.highScore} />
       <div className="instructions instructionsSidebar">
         <div className="instructions instructionsHeader">How to Play</div>
         <div className="instructions instructionsText">
