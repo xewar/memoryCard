@@ -4,9 +4,15 @@ import Scoreboard from './Scoreboard';
 const Instructions = () => {
   return (
     <div className="sidebar">
+      <div className="difficultyLevel">
+        <button className="birdType">Bitterns, Herons, and Ibises</button>
+        <button className="birdType">Waterfowl</button>
+        <button className="birdType">All Types of Birds</button>
+        <button className="birdType">Try again</button>
+      </div>
       <Scoreboard />
       <div className="instructions instructionsSidebar">
-        <h1 className="instructions instructionsHeader">How to Play</h1>
+        <div className="instructions instructionsHeader">How to Play</div>
         <div className="instructions instructionsText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

@@ -20,7 +20,7 @@ const CardContainer = props => {
       return (
         <Card
           key={uniqid()}
-          url={`./images/birdsOfCP/${bird.fileExt}1.jpeg`}
+          url={`./images/birdsOfCP/${bird.fileExt}2.jpeg`}
           birdType={bird.species}
         />
       );
