@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import './css/App.css';
 import CardContainer from './CardContainer';
 import Header from './Header';
+import Instructions from './Instructions';
 
 function App() {
-  const [difficulty, setDifficulty] = useState('all');
-  const [size, setSize] = useState(9); //futureUpdate: change gridSize /difficulty level
+  const [birdType, setBirdType] = useState('all');
+  const [gridSize, setGridSize] = useState(9);
+  const [difficulty, setDifficulty] = useState('easy'); //whether multiple pictures of the same bird can be used
 
   return (
     <div className="App">
       <Header />
-      <CardContainer size={size} difficulty={difficulty} />
+      <div className="body">
+        <CardContainer size={gridSize} birdType={birdType} />
+        <Instructions />
+      </div>
     </div>
   );
 }

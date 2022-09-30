@@ -1,26 +1,32 @@
 import React, { useState } from 'react';
 import Card from './Card';
 import uniqid from 'uniqid';
+import birdData from './birdData.js';
 
 const CardContainer = props => {
-  const { difficulty, size, color } = props;
+  const { birdType, size } = props;
 
-  let imgArray = Array(size)
-    .fill()
-    .map((element, index) => index + 3);
+  let birdsArray = birdData.birds;
+  let randomBirds = [];
+  let randomBirdGenerator = () => Math.floor(Math.random() * birdsArray.length);
+  for (let i = 0; i <= size; i++) {
+    //choose what birds are displayed this round
+    randomBirds.push(randomBirdGenerator());
+  }
 
-  const displayCards = imgArray.map(imgNum => {
-    return (
-      <Card
-        difficulty={difficulty}
-        url={`./images/${color}/grid (${imgNum}).png`}
-        key={uniqid()}
-      />
-    );
+  let thisRoundCount = {};
+  const displayCards = birdsArray.map(bird => {
+    if (bird.id in randomBirds) {
+      return (
+        <Card
+          key={uniqid()}
+          url={`./images/birdsOfCP/${bird.fileExt}1.jpeg`}
+          birdType={bird.species}
+        />
+      );
+    }
   });
 
-  return (
-    <div className={`cardContainer ${difficulty}Container`}>{displayCards}</div>
-  );
+  return <div className="cardContainer">{displayCards}</div>;
 };
 export default CardContainer;
