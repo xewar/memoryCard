@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
-import Scoreboard from './Scoreboard';
 
-const Instructions = props => {
+const Instructions = () => {
   return (
     <div className="sidebar">
       <div className="difficultyLevel">
+        {' '}
+        <div className="chooseCategory"></div>
         <button className="birdType">Bitterns, Herons, and Ibises</button>
         <button className="birdType">Waterfowl</button>
-        <button className="birdType">All Types of Birds</button>
+        <button className="birdType selected">All Types of Birds</button>
+      </div>
+      <div className="difficultyLevel">
+        <button className="difficulty selected easy">Easy</button>
+        <button className="difficulty medium">Medium</button>
+        <button className="difficulty hard">Hard</button>
+      </div>
+      <div className="difficultyLevel">
+        <div></div>
         <button className="birdType">Try again</button>
       </div>
-      <Scoreboard score={props.score} highScore={props.highScore} />
       <div className="instructions instructionsSidebar">
         <div className="instructions instructionsHeader">How to Play</div>
         <div className="instructions instructionsText">
