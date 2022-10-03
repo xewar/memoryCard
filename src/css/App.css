@@ -22,24 +22,22 @@
 /* ___________________________TYPE + COLOR__________________________ */
 
 .headerText {
-  font-family: marshmallow-fluff, sans-serif;
-  font-weight: 400;
   font-style: normal;
-  font-size: 3.5em;
+  font-weight: 300;
+  font-size: 2em;
+  /* text-transform: uppercase; */
   color: var(--green);
 }
 
 button {
-  font-family: brandon-grotesque;
-  font-weight: 500;
+  font-family: mr-eaves-modern;
+  font-weight: 400;
   border: none;
-  background-color: var(--darkGreen);
   width: 7.5em;
   height: 7.5em;
   border-radius: 100%;
   padding: 0.5em;
-  font-size: 1.1em;
-  color: var(--darkerGreen);
+  font-size: 1em;
 }
 button:hover {
   background-color: var(--lightGreen);
@@ -53,17 +51,11 @@ button.selected {
   font-weight: bold;
 }
 .scoreNumber {
-  font-size: 2em;
-  color: var(--green);
-  font-weight: bold;
-  font-family: 'marshmallow-script';
 }
 
 .scoreboard {
-  font-size: 1.5em;
   max-width: 350px;
-  font-weight: bold;
-  color: var(--darkerGreen);
+  font-weight: 400;
 }
 /* ___________________________GENERAL PAGE STYLING __________________________ */
 
@@ -97,21 +89,22 @@ button.selected {
 }
 /* _______________________BODY STYLING (MEMORY CARDS + CONTAINER) __________________________ */
 .right {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 2em;
-  margin-top: 4em;
+  margin-left: 4em;
 }
 .memoryCard {
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 300px;
   object-fit: cover;
 }
 
 .cardContainer {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, max-content);
+  grid-template-rows: repeat(3, 1fr); */
+  display: flex;
+  width: 900px;
+  flex-wrap: wrap;
+  /* border: 20px solid black; */
 }
 .scoring {
   display: flex;

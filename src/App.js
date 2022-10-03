@@ -22,7 +22,9 @@ function App() {
   return (
     <div className="App">
       <div className="left">
-        {/* <div className="headerText">Birds of Central Park</div> */}
+        <div className="headerText">The Birds of Central Park</div>
+        <Scoreboard score={score} highScore={highScore} />
+
         <Instructions />
       </div>
       <div className="right">
@@ -33,19 +35,6 @@ function App() {
           highScore={highScore}
           updateScore={updateScore}
         />
-        <div className="scoring">
-          <div className="instructions instructionsText">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
-          </div>
-          <Scoreboard score={score} highScore={highScore} />
-        </div>
-        <div className="headerText">Birds of Central Park</div>
       </div>
     </div>
   );
