@@ -8,6 +8,8 @@ const birdData = {
       frequency: 'common',
       id: 0,
       count: 0,
+      identification:
+        'Small, compact duck with a long, fan-shaped tail, often held sticking up out of water. Breeding males have a chestnut body, black cap, white cheek, and baby-blue bill. Winter males have a brown body, black cap and white cheek. Females and immature males are brown overall with a dark cap and dark line through the cheek. Often in tight groups bobbing like corks on ponds and bays. Dives to forage on aquatic invertebrates. Not often seen flying.',
     },
     {
       species: 'American Bittern',
@@ -17,6 +19,8 @@ const birdData = {
       frequency: 'less common',
       id: 1,
       count: 0,
+      identification:
+        'Stocky, brown heron found in marshes and bogs. Usually secretive and difficult to see, but occasionally found in the open. Most similar to juvenile night-herons. Note striped neck, plain unspotted wings, and even more secretive behavior of bittern. Most active around dawn and dusk, when it might be seen flying low over extensive marshes. Listen for its incredible vocalization in the spring and summer: a resonant, booming noise produced by air sacs on the neck, “oonk-GA-loonk.” Also gives single low squawks.',
     },
     {
       species: 'Green Heron',
@@ -26,6 +30,8 @@ const birdData = {
       frequency: 'less common',
       id: 2,
       count: 0,
+      identification:
+        'Small, dark heron with a blue-green back, rusty-colored neck and dark cap. Usually in a crouched position, partly concealed in vegetation, waiting patiently for prey. In flight, looks like an awkward crow with broad wings, neck tucked in, and legs extending just beyond the tail. Often vocal when flushed; gives a sharp "skeiw!"',
     },
     {
       species: 'Great Blue Heron',
@@ -35,6 +41,8 @@ const birdData = {
       frequency: 'common',
       id: 3,
       count: 0,
+      identification:
+        'Huge gray heron, no other similar species in range. Note large yellow-orange bill, short black plumes on head, and black and chestnut pattern on shoulder. Immatures are more brownish than adults, and have a dark crown. Fairly common and widespread throughout North America; wintering range extends to northern South America. Occurs in almost any wetland habitat, from small ponds to marshes to saltwater bays. Usually seen singly but can gather in numbers where food is plentiful. White form, sometimes considered a separate species (“Great White Heron”), is found in southern Florida and the Caribbean. It is most similar to Great Egret but has a larger bill.',
     },
     {
       species: 'Great Egret',
@@ -44,6 +52,8 @@ const birdData = {
       frequency: 'common',
       id: 4,
       count: 0,
+      identification:
+        'Large, lanky, long-necked white heron. Size and black legs help separate from other egrets. Widespread and fairly common across the globe. Bill color varies across range: always yellow in the Americas, black in breeding season elsewhere. Occurs in any shallow wetland, including ponds, marshes, and tidal mudflats. Slowly stalks prey in shallow water. Often seen singly, but sometimes gathers in large numbers where food is plentiful. Breeds in colonies, frequently mixed with other egrets and herons.',
     },
     {
       species: 'Snowy Egret',
@@ -53,6 +63,8 @@ const birdData = {
       frequency: 'less common',
       id: 5,
       count: 0,
+      identification:
+        'Small white heron with black bill, black legs, and yellow feet. Lores (between eye and bill) are usually bright yellow, but flush reddish in the breeding season. Also note lacy plumes on head, breast, and back during breeding season. Immatures have duller yellow lores and more yellow extending up the legs than adults. Fairly common and widespread in North and South America; often most common along the coast. Found in a variety of wetland habitats, especially shallow marshy pools and mudflats. Forages fairly actively in shallow water, often darting after small fish. Compare with immature Little Blue Heron, which usually has more greenish legs and lores, and note Snowy’s more active feeding style.',
     },
     {
       species: 'Black-crowned Night Heron',
@@ -62,6 +74,8 @@ const birdData = {
       frequency: 'common',
       id: 6,
       count: 0,
+      identification:
+        'Stocky heron with neck usually tucked in. Adults overall pale grayish with black cap and back. Red eyes. Juveniles noticeably different, brown and streaky with yellow eyes. Often crouched under overhanging branches during the day. Feeds nocturnally for fish, frogs and other prey. Where it overlaps with Yellow-crowned Night-Heron, note large teardrop-shaped white spots on wing coverts which Yellow-crowned lacks.',
     },
     {
       species: 'Snow Goose',
@@ -71,6 +85,8 @@ const birdData = {
       frequency: 'less common',
       id: 7,
       count: 0,
+      identification:
+        'Medium-sized goose with two strikingly different color morphs. White morph generally more common. Adults have black wingtips, pink bill and legs, and often show yellowish staining on the head. Juveniles have dull brownish bill and legs and variable grayish smudging on body and wings. Dark morph adults are dark slaty-gray with a white face; juveniles are entirely dark. Typically found in flocks, sometimes numbering into the thousands, but individuals may be found with other geese species. Occurs in fields, marshes, and lakes during migration and winter; breeds on Arctic tundra. Compare with Ross’s Goose, which is like a cuter miniature version of Snow Goose. Pay attention to the bill: Snow Goose has a longer bill with a more curved border where it meets the face, and a more pronounced dark “grin patch” (but beware, Ross’s can show a small grin patch too!).',
     },
     {
       species: 'Gadwall',
@@ -80,6 +96,8 @@ const birdData = {
       frequency: 'less common',
       id: 8,
       count: 0,
+      identification:
+        'Fairly large duck with extensive range across Northern Hemisphere. Males are mostly gray with a black rear end and puffy head. Also look for small white wing patch in flight. Females are similar to Mallard, but note thinner bill, plainer face, orange line along the edge of the bill, and white wing patch in flight. Typically found in pairs or small flocks in shallow wetlands, ponds, or bays, sometimes mixed with other species of ducks.',
     },
     {
       species: 'Green-winged Teal',
@@ -89,6 +107,8 @@ const birdData = {
       frequency: 'less common',
       id: 9,
       count: 0,
+      identification:
+        'Tiny duck with a petite, thin bill. Males have a brown head with a wide green swatch behind the eye, creamy speckled breast, and mostly gray body. Females are brown, darker overall than other dabbling ducks. Forages by dabbling and tipping-up to reach submerged aquatic vegetation. Also regularly walks around mudflats to feed.',
     },
     {
       species: 'Canvasback',
@@ -98,6 +118,8 @@ const birdData = {
       frequency: 'less common',
       id: 10,
       count: 0,
+      identification:
+        'Attractive duck with distinctive triangular head; forehead slopes seamlessly into the long bill. Males are white-bodied with black chest, reddish-brown head, and red eye. Females are dull grayish-brown with unique head profile and dark brown eye. Breeds in lakes and marshes. Winters in any large body of water with submerged aquatic vegetation on which to feed. Dives frequently, searching for vegetation and invertebrates. Often gathers in large flocks in nonbreeding season.',
     },
     {
       species: 'Ring-necked Duck',
@@ -107,6 +129,8 @@ const birdData = {
       frequency: 'less common',
       id: 11,
       count: 0,
+      identification:
+        'A relatively small diving duck with a tall peaked crown. Males are handsome with glossy black head and back, clean gray sides, and a brighter white spur on the side. Females are grayish-brown, often with a paler patch at the base of the bill and a white eyering. Both sexes have a white band near the tip of gray bill. Also note gray, not white, wingstripe in flight. Usually favors small bodies of water, such as beaver ponds and cattail marshes, but also occurs on larger lakes, rivers, and bays. Can be found in mixed flocks with other diving ducks, although usually in smaller numbers than scaup. Compare with both species of scaup and Redhead (especially females).',
     },
     {
       species: 'Lesser Scaup',
@@ -116,6 +140,8 @@ const birdData = {
       frequency: 'less common',
       id: 12,
       count: 0,
+      identification:
+        'Peak-headed diving duck. Males have black breast, finely-barred gray back, whitish sides (often slightly dusty-looking), and yellow eye. Head appears black with a purplish or greenish sheen in good light. Females are brown overall with white patch at base of bill and yellow eye. Very similar to Greater Scaup; note Lesser’s peaked head shape with angle near the rear of crown, slimmer cheeks, less extensive white stripe on wing in flight, and smaller, narrower bill. Also similar to Ring-necked Duck, but Lesser Scaup has grayer back and whiter sides. Usually in flocks or pairs on a variety of wetland habitats, from small ponds to large lakes and bays. Slightly more likely to be seen on smaller bodies of water, especially fresh water, than Greater Scaup, but much overlap. Frequently in mixed flocks with other Aythya ducks. Widespread across North America, with more southerly range extent than Greater Scaup, regularly reaching northern South America.',
     },
     {
       species: 'Hooded Merganser',
@@ -125,6 +151,8 @@ const birdData = {
       frequency: 'less common',
       id: 13,
       count: 0,
+      identification:
+        'Small diving duck with thin serrated bill. Breeding males have showy black-and-white crest, a couple zebra stripes on the white breast, and cinnamon-colored sides. Females are brown with a puffy crest and partly yellow bill. Looks slender and long-necked in flight, with very fast wingbeats. Widespread across much of North America, but usually only seen in pairs or small flocks. Nests in cavities near small ponds or marshes; especially fond of wooded swamps. In winter, usually found on calm bodies of water; almost never on the ocean. Sometimes mixes loosely with other duck species.',
     },
     {
       species: 'Canada Goose',
@@ -134,6 +162,8 @@ const birdData = {
       frequency: 'common',
       id: 14,
       count: 0,
+      identification:
+        'A large brown goose with a black neck and white chinstrap. Overall size, bill size, and brown coloration variable across subspecies. Occurs in any open or wetland habitat, from city parks and golf courses to pristine marshes and Arctic tundra. Typically in flocks or family groups. Often seen in mixed flocks with Cackling Goose, especially in central and western North America. Canada Goose is almost always larger, longer-necked, and longer-billed than Cackling, although beware there is some overlap between the smallest Canada and largest Cackling. Abundant and widespread throughout the U.S. and Canada; rare in Mexico. Introduced and widely established in Europe. Listen for loud honking calls, especially as flocks migrate overhead in the classic V formation.',
     },
     {
       species: 'Mallard',
@@ -143,6 +173,8 @@ const birdData = {
       frequency: 'common',
       id: 15,
       count: 0,
+      identification:
+        'A large duck, generally common and familiar within its extensive range. Males are distinctive with iridescent green head, yellow bill, chestnut breast, and gray body. Females are mottled brown with orange and black splotches on the bill. Found anywhere with water, including city parks, backyard creeks, and various wetland habitats. Often in flocks, and frequently mixes with other duck species. In North America, females can be tricky to distinguish from American Black Duck, Mottled Duck, and Mexican Duck where ranges overlap. Those species are all darker-bodied than Mallard. A good view of the wing can be helpful, too: white wingbars on the leading and trailing edges of the blue wing patch are bolder on Mallard. Frequently hybridizes with those species, which can be even more confusing. Any bird with extensive white in the tail or curled feathers above the tail has some Mallard genes.',
     },
     {
       species: 'American Black Duck',
@@ -152,6 +184,8 @@ const birdData = {
       frequency: 'common',
       id: 16,
       count: 0,
+      identification:
+        'A large duck, nearly identical to Mallard in size and shape but with a much darker chocolate-colored body. Bill is yellow with a slight greenish tinge on males, dull grayish-green on females. Note blue wing patch lacks any white borders. Fairly common in northeastern North America, especially along the coast. Large flocks can gather in the winter in saltmarshes and estuaries, but also occurs in smaller numbers on ponds and lakes, often mixed with other duck species. Frequently hybridizes with Mallard. Hybrids usually look darker than typical Mallards and may have an intermediate head pattern; also look for white in the tail or curled feathers above the tail to indicate Mallard genes.',
     },
     {
       species: 'Northern Shoveler',
@@ -161,6 +195,8 @@ const birdData = {
       frequency: 'common',
       id: 17,
       count: 0,
+      identification:
+        'Medium-sized duck; smaller than a Mallard. Huge, spoon-shaped bill visible at a distance and in flight. Breeding males have dark green head, white breast, and chestnut sides and belly. Females buffy-brown with large, distinctive bill. Chalky-blue upperwing. Forages by sifting through the water, often swimming in spirals in groups.',
     },
     {
       species: 'Bufflehead',
@@ -170,6 +206,177 @@ const birdData = {
       frequency: 'common',
       id: 18,
       count: 0,
+      identification:
+        'Small, compact diving duck with large head and small gray bill. Breeding males are black and white with large white patch on back of head. Females and immature males are gray-brown with white patch on cheek. Much smaller than Common Goldeneye with which it often associates. Found in bays, estuaries, reservoirs, and lakes in winter. Travels to boreal forest and nests in cavities in summer.',
+    },
+    {
+      species: 'Osprey',
+      fileExt: 'osprey',
+      category: 'Birds of Prey',
+      status: 'annual migrant',
+      frequency: 'less common',
+      notes: 'flyover',
+      id: 19,
+      count: 0,
+      identification:
+        'Large, mostly white raptor that cruises over lakes, rivers, and coastal waterways in search of fish. Impressively widespread: found on every continent except Antarctica. Mostly white head and underparts; dark brown back. In flight, holds wings with a kink in the wrist (shaped like an "M"). Stick nests are conspicuous on top of channel markers, utility poles and high platforms near water. Often seen plunging feet-first into water from high in the air to grab fish.',
+    },
+    {
+      species: 'Bald Eagle',
+      fileExt: 'baldEagle',
+      category: 'Birds of Prey',
+      status: 'annual migrant',
+      frequency: 'less common',
+      notes: 'flyover',
+      id: 20,
+      count: 0,
+      identification:
+        "Majestic adults have blackish-brown body with white head and tail. Several stages of immature plumages aren't quite as majestic, from fully dark brown to messy and mottled with large patches of white. Look especially for white mottling on the belly on immatures. Scavenges and hunts near bodies of water. Soars with wings flat, like a large, dark plank. Head appears large in flight; projects far in front of wings. Surprisingly weak-sounding vocalization is a series of high-pitched whistles.",
+    },
+    {
+      species: 'Northern Harrier',
+      fileExt: 'northernHarrier',
+      category: 'Birds of Prey',
+      status: 'annual migrant',
+      frequency: 'less common',
+      notes: 'flyover, also known as a Marsh Hawk',
+      id: 21,
+      count: 0,
+      identification:
+        'Medium-sized hawk with long tail and thin wings. Flies with wings held in a V-shape, low over open fields and marshes, listening for rodents lurking below. Distinctive foraging behavior and conspicuous white patch on rump in all plumages. Females and immatures are warm brown. Adult males gray above and whitish below with black wingtips.',
+    },
+    {
+      species: 'Red-shouldered Hawk',
+      fileExt: 'redShoulderedHawk',
+      category: 'Birds of Prey',
+      status: 'annual migrant',
+      frequency: 'less common',
+      notes: 'flyover, infrequently in the park',
+      id: 22,
+      count: 0,
+      identification:
+        'Smaller than Red-tailed Hawk. Adults are beautiful with rich orange barring below and bold black-and-white checkerboard patterning on wings. Often in forested areas, where they hunt from perches. Perches on wires more frequently than Red-tailed Hawk. In flight, wings seem narrow and pushed forward compared to Red-tailed or Broad-winged Hawk; also note relatively long tail. Population in California is more richly colored (darker orange) than paler Eastern birds; while Florida birds are paler with gray head and back.',
+    },
+    {
+      species: 'Broad-winged Hawk',
+      fileExt: 'broadWingedHawk',
+      category: 'Birds of Prey',
+      status: 'annual migrant',
+      frequency: 'less common',
+      notes: 'flyover',
+      id: 23,
+      count: 0,
+      identification:
+        'Rather small, compact hawk; about the size of Red-shouldered Hawk, smaller than Red-tailed Hawk. Adults are solid brown above, barred reddish-brown below with bold black-and-white tail bands. Immatures similar, but with blotchier markings below and thin, diffuse tail bands. Distinctive shape in flight: note the short tail, straight leading edge of wing, and bulging secondaries in flight. Listen for high-pitched, piercing whistle coming from woodlands during breeding season. Known for forming massive flocks called kettles during migration, when it travels from the U.S. and Canada all the way to winter in Central and South America.',
+    },
+    {
+      species: 'Sharp-shinned Hawk',
+      fileExt: 'sharpShinnedHawk',
+      category: 'Birds of Prey',
+      status: 'annual migrant',
+      frequency: 'common',
+      notes: 'flyover, often in the park',
+      id: 24,
+      count: 0,
+      identification:
+        "Small hawk with relatively short rounded wings. Adults are gray above with pale orange barring below; immatures are browner and streaky. Very similar to Cooper's Hawk, especially in plumage, but smaller overall with smaller head, more squared-off tail, and more petite feet. Also note quicker, snappier wingbeats. Breeds in extensive forests. Feeds mainly on birds captured in flight. Often stalks feeders in search of prey.",
+    },
+    {
+      species: "Cooper's Hawk",
+      fileExt: 'coopersHawk',
+      category: 'Birds of Prey',
+      status: 'annual migrant',
+      frequency: 'common',
+      notes: 'flyover, occasionally winters',
+      id: 25,
+      count: 0,
+      identification:
+        'Small to medium-sized hawk with relatively short rounded wings and rounded tail. Adults are gray above with pale orange barring below; immatures are browner and streaky. Very similar to Sharp-shinned Hawk, but larger with bigger head. Also note deeper, slower wingbeats. Breeds in forested areas; more common in suburban areas than Sharp-shinned Hawk. Feeds mainly on birds captured in flight. Often stalks feeders in search of prey.',
+    },
+    {
+      species: 'Red-tailed Hawk',
+      fileExt: 'redTailedHawk',
+      category: 'Birds of Prey',
+      status: 'year-round',
+      frequency: 'common',
+      notes: 'nests on 5th Avenue',
+      id: 26,
+      count: 0,
+      identification:
+        'Most common roadside raptor across much of North America. Often perches atop telephone poles, light posts, and edges of trees. Incredible variation in plumages, including less common dark morphs and various regional differences. Eastern adults have brilliant reddish-orange tail and pale underparts with obvious band of dark marks across belly. Western birds are typically darker. Immatures do not have a red tail.',
+    },
+    {
+      species: 'American Kestrel',
+      fileExt: 'americanKestrel',
+      category: 'Birds of Prey',
+      status: 'year-round',
+      frequency: 'less common',
+      notes: 'nests in NYC',
+      id: 27,
+      count: 0,
+      identification:
+        'Petite falcon roughly the same size as Mourning Dove, but with a larger head and wider tail. In flight, note long, narrow wings and square-tipped tail. Often seen perched on telephone wires, along roadsides, in open country with short vegetation and few trees. From a perch or hovering, they usually drop to the ground to snatch small mammals and insects. Nests in cavities. Widespread across the Americas.',
+    },
+    {
+      species: 'Merlin',
+      fileExt: 'merlin',
+      category: 'Birds of Prey',
+      status: 'annual migrant',
+      frequency: 'less common',
+      notes: '',
+      id: 28,
+      count: 0,
+      identification:
+        'Small and fierce falcon. Dark above and paler below, with streaking on the underparts; darkness of plumage varies geographically. Feeds mainly on birds captured in flight. Found in a variety of habitats from grasslands, open forests, and especially coastal areas with shorebirds. Flies powerfully on pointed wings with quick, continuous wingbeats.',
+      latin: 'Falco columbarius',
+    },
+    {
+      species: 'Peregrine Falcon',
+      fileExt: 'peregrineFalcon',
+      category: 'Birds of Prey',
+      status: 'year-round',
+      frequency: 'less common',
+      notes: '',
+      id: 29,
+      count: 0,
+      identification:
+        'Sleek, fast-flying large falcon. Always look for a grayish back in adults, long wings that almost reach the tail tip, and powerful but slender build. Dark mark below each eye varies in shape and size. Juveniles are more heavily patterned below than adults, and can be quite brownish above. Patterning varies considerably across a wide global range, with back color ranging from pale gray in Central Asian “Red-capped” to slaty-blue across much of northern Eurasia North America, to almost black in Asian “Shaheen.” Chases prey down at high speeds with continuous powerful wingbeats. Becoming increasingly common in parts of range, especially in cities, where they can nest on tall buildings and feed on pigeons. Adaptable, and can be seen in a wide range of habitats; often encountered in areas with steep cliffs, as well as around coastal mudflats and open areas with shorebirds.',
+    },
+    {
+      species: 'Northern Goshawk',
+      fileExt: 'northernGoshawk',
+      category: 'Birds of Prey',
+      status: 'infrequent',
+      frequency: 'less common',
+      notes: 'flyover, infrequently in the park',
+      id: 30,
+      count: 0,
+      identification:
+        "Powerfully-built forest-dwelling hawk, uncommon across much of range. Adults are distinctive if seen well: overall gray, paler below, blackish crown and cheek, white eyebrow, and red eye. Immature very similar to Eurasian Sparrowhawk and Cooper's Hawk, but larger and broader-winged with a more prominent white eyebrow, heavier streaking below (Eurasian Sparrowhawk barred below), and typically streaked undertail coverts. In most suburban areas, Cooper's and Sparrowhawk are more likely; goshawk typically requires extensive mature forest. Very aggressive around the nest. Feeds on large prey such as hares and grouse.",
+    },
+    {
+      species: 'Rough-legged hawk',
+      fileExt: 'roughLeggedHawk',
+      category: 'Birds of Prey',
+      status: 'infrequent',
+      frequency: 'less common',
+      notes: 'flyover',
+      id: 31,
+      count: 0,
+      identification:
+        'Long-winged, northern raptor found in open areas like fields and marshes. Plumage variable; light morphs generally pale with dark belly and dark patches on "wrists." Dark morphs have brown or blackish body with finely banded tail and striking white flight feathers. Some birds intermediate. Hovers often, kestrel-like, flapping wings while looking down. Also perches at edges of tree branches and tops of trees, places larger hawks are too heavy to perch. Breeds in far northern tundra and moves south irregularly to winter in open fields and grasslands. Compare with other Buteo hawks, such as Red-tailed Hawk and Common Buzzard, where ranges overlap. Note size, small bill, shaggy feathers on legs, and long and narrow wings.',
+    },
+    {
+      species: 'Golden Eagle',
+      fileExt: 'goldenEagle',
+      category: 'Birds of Prey',
+      status: 'infrequent',
+      frequency: 'less common',
+      notes: 'flyover',
+      id: 32,
+      count: 0,
+      identification:
+        'Large and impressive raptor with a range encompassing much of the Northern Hemisphere. Mostly dark brown; the namesake golden nape can be hard to see, especially from below. Immatures have a white patch on the underwing and a white tail base. Compared to similar immature sea eagles such as White-tailed and Bald Eagle, lacks significant white mottling on the belly. Also note the relatively short-necked profile. Often holds wings in slight V-shape when soaring. Hunts mainly mammals in remote, open country from grasslands and steppes to mountainous areas.',
     },
   ],
 };

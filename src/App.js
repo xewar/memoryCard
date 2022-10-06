@@ -3,6 +3,7 @@ import './css/App.css';
 import CardContainer from './CardContainer';
 import Instructions from './Instructions';
 import Scoreboard from './Scoreboard';
+import GameSettings from './GameSettings';
 
 function App() {
   const [birdType, setBirdType] = useState('all');
@@ -24,8 +25,8 @@ function App() {
       <div className="left">
         <div className="headerText">The Birds of Central Park</div>
         <Scoreboard score={score} highScore={highScore} />
-
         <Instructions />
+        <GameSettings />
       </div>
       <div className="right">
         <CardContainer

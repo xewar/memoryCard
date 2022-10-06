@@ -5,6 +5,7 @@
   --text: #94a3b8;
   --background: white;
   --green: rgba(179, 209, 109, 1);
+  --lightestGreen: rgba(179, 209, 109, 0.2);
   --lightGreen: rgba(179, 209, 109, 0.5);
   --darkGreen: rgba(66, 90, 77, 0.2);
   --darkerGreen: rgba(66, 90, 77, 0.9);
@@ -19,17 +20,43 @@
   grid-template-columns: 300px 1fr;
   margin: 1em;
 }
+
+img {
+  display: block;
+}
 /* ___________________________TYPE + COLOR__________________________ */
 
 .headerText {
   font-style: normal;
-  font-weight: 300;
+  font-weight: bold;
   font-size: 2em;
   /* text-transform: uppercase; */
   color: var(--green);
 }
-
 button {
+  background-color: transparent;
+  border: none;
+  color: var(--darkerGreen);
+}
+.dropdownButton {
+  width: 2em;
+  height: 2em;
+  padding: none;
+  display: flex;
+  align-items: center;
+}
+.instructionsHeader {
+  color: var(--darkerGreen);
+  font-weight: bold;
+  display: flex;
+  justify-content: start;
+  gap: 1em;
+  align-items: center;
+}
+.instructionsHeaderText {
+  font-size: 2em;
+}
+.bubble {
   font-family: mr-eaves-modern;
   font-weight: 400;
   border: none;
@@ -38,18 +65,15 @@ button {
   border-radius: 100%;
   padding: 0.5em;
   font-size: 1em;
+  background-color: var(--lightestGreen);
 }
-button:hover {
+.bubble:hover {
   background-color: var(--lightGreen);
 }
-button.selected {
+.bubble.selected {
   background-color: var(--green);
 }
-.instructionsHeader {
-  color: var(--darkerGreen);
-  font-size: 2em;
-  font-weight: bold;
-}
+
 .scoreNumber {
 }
 
