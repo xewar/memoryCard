@@ -23,12 +23,13 @@ function App() {
   return (
     <div className="App">
       <div className="left">
-        <div className="headerText">The Birds of Central Park</div>
-        <Scoreboard score={score} highScore={highScore} />
-        <Instructions />
         <GameSettings />
+        <Instructions />
       </div>
       <div className="right">
+        <div className="header"> </div>
+        {/* <Scoreboard score={score} highScore={highScore} /> */}
+
         <CardContainer
           size={gridSize}
           birdType={birdType}
