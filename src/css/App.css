@@ -8,11 +8,12 @@
   --darkPink: #ffacbd;
   --darkerPink: #ff859f;
 }
-
+body {
+  background-color: var(--lightPink);
+}
 .App {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  background-color: var(--lightPink);
+  grid-template-columns: 325px 1fr;
 }
 
 img {
@@ -84,7 +85,7 @@ a:visited {
 /* _______________________BODY STYLING (MEMORY CARDS + CONTAINER) __________________________ */
 .right {
   display: grid;
-  grid-template-rows: 80px 1fr 80px;
+  grid-template-rows: 60px 1fr 80px;
 }
 .memoryCard {
   height: 250px;
@@ -93,13 +94,16 @@ a:visited {
 }
 
 .cardContainer {
+  background-color: white;
   grid-row: 2;
+  display: flex;
+  width: 900px;
+  height: 650px;
+  flex-wrap: wrap;
   /* display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr); */
-  display: flex;
-  width: 900px;
-  flex-wrap: wrap;
+
   /* border: 20px solid black; */
 }
 .scoring {

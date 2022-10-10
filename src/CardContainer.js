@@ -23,7 +23,6 @@ const CardContainer = props => {
     setRandomBirdState(prevState => randomBirds);
   };
 
-  const updateScore = () => {};
   const displayCards = () => {
     return birdsArray.map(bird => {
       if (randomBirdState.includes(bird.id)) {
@@ -39,6 +38,12 @@ const CardContainer = props => {
     });
   };
 
-  return <div className="cardContainer">{displayCards()}</div>;
+  return (
+    <div className="cardContainer">
+      <div className="leftCardStack"></div>
+      <div className="currentCards"></div>
+      <div className="rightCardStack"></div>
+    </div>
+  );
 };
 export default CardContainer;
