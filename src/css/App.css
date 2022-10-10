@@ -87,28 +87,70 @@ a:visited {
   display: grid;
   grid-template-rows: 60px 1fr 80px;
 }
-.memoryCard {
-  height: 250px;
-  width: 300px;
-  object-fit: cover;
-}
-
 .cardContainer {
   background-color: white;
   grid-row: 2;
-  display: flex;
   width: 900px;
   height: 650px;
-  flex-wrap: wrap;
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr); */
-
-  /* border: 20px solid black; */
-}
-.scoring {
   display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  margin-top: 10em;
+  justify-content: space-around;
+  align-items: center;
+}
+.card {
+  background-color: var(--darkPink);
+  border-radius: 20px;
+  border: 6px solid var(--lightPink);
+}
+.leftCardStack {
+  width: 250px;
+  margin-bottom: 12em;
+}
+.stackedCards {
+  position: relative;
+  margin-left: 0.5em;
+}
+.cardBack {
+  font-size: 60px;
+  font-weight: 900;
+  height: 310px;
+  width: 195px;
+  color: var(--lightPink);
+  text-transform: uppercase;
+  position: absolute;
+}
+.cardText {
+  padding: 10px;
+}
+.top {
+  left: 0.4em;
+}
+.middle {
+  left: 0.2em;
+}
+.rightCardStack {
+  width: 150px;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+}
+.currentCard {
+  width: 330px;
+  height: 525px;
+  display: flex;
+  justify-content: center;
+}
+.birdPhoto {
+  width: 250px;
+  height: 350px;
+  border: 6px solid var(--lightPink);
+  border-radius: 20px;
+  margin-top: 2em;
+}
+
+.smallBirdPhoto {
+  width: 110px;
+  height: 160px;
+  border: 4px solid var(--lightPink);
+  border-radius: 10px;
+  margin-top: 1em;
 }
