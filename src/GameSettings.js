@@ -37,7 +37,6 @@ const GameSettings = () => {
         };
       });
     }
-    console.log(selectedBirds);
   }
   return (
     <div className="settings">
