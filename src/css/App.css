@@ -6,16 +6,7 @@
   --background: white;
   --lightPink: #fff4f7;
   --darkPink: #ffacbd;
-
-  /* --green: rgba(179, 209, 109, 1);
-  --lightestGreen: rgba(179, 209, 109, 0.2);
-  --lightGreen: rgba(179, 209, 109, 0.5);
-  --darkGreen: rgba(66, 90, 77, 0.2);
-  --darkerGreen: rgba(66, 90, 77, 0.9);
-  --accent_0: rgba(50, 85, 164, 0.4);
-  --accent_1: rgba(50, 85, 164, 0.1);
-  --accent_3: rgba(255, 72, 176, 0.1);
-  --accent_2: rgba(61, 85, 136, 0.5); */
+  --darkerPink: #ff859f;
 }
 
 .App {
@@ -27,23 +18,17 @@
 img {
   display: block;
 }
-/* ___________________________TYPE + COLOR__________________________ */
+/* ___________________________SIDEBAR STYLING __________________________ */
 
-.dropdownButton {
-  background-color: transparent;
-  border: none;
-  width: 3em;
-  padding: none;
-  display: flex;
-  align-items: center;
-}
 .sidebarHeader {
   color: var(--darkPink);
   font-weight: 700;
   font-size: 2.25em;
   margin-left: 1.2em;
 }
-
+.settingsGroup {
+  margin-top: 2em;
+}
 .radioButton {
   background-color: white;
   border: 2.5px solid var(--darkPink);
@@ -59,16 +44,43 @@ img {
   display: flex;
   gap: 0.5em;
   margin: 0.5em;
+  margin-top: 0.25em;
 }
 
-/* ___________________________SIDEBAR STYLING __________________________ */
+.sidebarDropdown {
+  display: flex;
+}
+.dropdownHeader {
+  margin: 0;
+}
+.dropdownButton {
+  background-color: transparent;
+  border: none;
+  width: 1.5em;
+  margin: 0.5em;
+  padding: none;
+  /* align-items: center; */
+}
 .left {
   padding: 1em;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
 }
-
+.instructionsText {
+  margin-left: 2.25em;
+  margin-right: 1.75em;
+  font-size: 1.15em;
+}
+/* unvisited link */
+a:link {
+  color: var(--darkPink);
+  font-weight: bold;
+}
+/* visited link */
+a:visited {
+  color: var(--darkPink);
+}
 /* _______________________BODY STYLING (MEMORY CARDS + CONTAINER) __________________________ */
 .right {
   display: grid;
