@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './css/App.css';
 import CardContainer from './CardContainer';
 import Instructions from './Instructions';
-import Scoreboard from './Scoreboard';
 import GameSettings from './GameSettings';
 
 function App() {
@@ -58,7 +57,11 @@ function App() {
       </div>
       <div className="right">
         <div className="header"> </div>
-        <CardContainer selectedBirds={selectedBirds} />
+        <CardContainer
+          selectedBirds={selectedBirds}
+          difficulty={difficulty}
+          mode={mode}
+        />
       </div>
     </div>
   );

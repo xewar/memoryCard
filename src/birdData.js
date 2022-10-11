@@ -3,7 +3,7 @@ const birdData = {
     {
       species: 'Ruddy Duck',
       fileExt: 'ruddyDuck',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'common',
       id: 0,
@@ -14,7 +14,7 @@ const birdData = {
     {
       species: 'American Bittern',
       fileExt: 'americanBittern',
-      category: 'Bittern, Heron, Ibis',
+      category: 'herons',
       status: 'infrequent',
       frequency: 'less common',
       id: 1,
@@ -25,7 +25,7 @@ const birdData = {
     {
       species: 'Green Heron',
       fileExt: 'greenHeron',
-      category: 'Bittern, Heron, Ibis',
+      category: 'herons',
       status: 'annual migrant',
       frequency: 'less common',
       id: 2,
@@ -36,7 +36,7 @@ const birdData = {
     {
       species: 'Great Blue Heron',
       fileExt: 'greatBlueHeron',
-      category: 'Bittern, Heron, Ibis',
+      category: 'herons',
       status: 'year-round',
       frequency: 'common',
       id: 3,
@@ -47,7 +47,7 @@ const birdData = {
     {
       species: 'Great Egret',
       fileExt: 'greatEgret',
-      category: 'Bittern, Heron, Ibis',
+      category: 'herons',
       status: 'annual migrant',
       frequency: 'common',
       id: 4,
@@ -58,7 +58,7 @@ const birdData = {
     {
       species: 'Snowy Egret',
       fileExt: 'snowyEgret',
-      category: 'Bittern, Heron, Ibis',
+      category: 'herons',
       status: 'annual migrant',
       frequency: 'less common',
       id: 5,
@@ -69,7 +69,7 @@ const birdData = {
     {
       species: 'Black-crowned Night Heron',
       fileExt: 'blackCrownedNightHeron',
-      category: 'Bittern, Heron, Ibis',
+      category: 'herons',
       status: 'annual migrant',
       frequency: 'common',
       id: 6,
@@ -80,7 +80,7 @@ const birdData = {
     {
       species: 'Snow Goose',
       fileExt: 'snowGoose',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'less common',
       id: 7,
@@ -91,7 +91,7 @@ const birdData = {
     {
       species: 'Gadwall',
       fileExt: 'gadwall',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'less common',
       id: 8,
@@ -102,7 +102,7 @@ const birdData = {
     {
       species: 'Green-winged Teal',
       fileExt: 'greenWingedTeal',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'less common',
       id: 9,
@@ -113,7 +113,7 @@ const birdData = {
     {
       species: 'Canvasback',
       fileExt: 'canvasback',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'less common',
       id: 10,
@@ -124,7 +124,7 @@ const birdData = {
     {
       species: 'Ring-necked Duck',
       fileExt: 'ringNeckedDuck',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'less common',
       id: 11,
@@ -135,7 +135,7 @@ const birdData = {
     {
       species: 'Lesser Scaup',
       fileExt: 'lesserScaup',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'less common',
       id: 12,
@@ -146,7 +146,7 @@ const birdData = {
     {
       species: 'Hooded Merganser',
       fileExt: 'hoodedMerganser',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'less common',
       id: 13,
@@ -157,7 +157,7 @@ const birdData = {
     {
       species: 'Canada Goose',
       fileExt: 'canadaGoose',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'year-round',
       frequency: 'common',
       id: 14,
@@ -168,7 +168,7 @@ const birdData = {
     {
       species: 'Mallard',
       fileExt: 'mallard',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'year-round',
       frequency: 'common',
       id: 15,
@@ -179,7 +179,7 @@ const birdData = {
     {
       species: 'American Black Duck',
       fileExt: 'americanBlackDuck',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'common',
       id: 16,
@@ -190,7 +190,7 @@ const birdData = {
     {
       species: 'Northern Shoveler',
       fileExt: 'northernShoveler',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'common',
       id: 17,
@@ -201,7 +201,7 @@ const birdData = {
     {
       species: 'Bufflehead',
       fileExt: 'bufflehead',
-      category: 'Waterfowl',
+      category: 'waterfowl',
       status: 'annual migrant',
       frequency: 'common',
       id: 18,
@@ -212,7 +212,7 @@ const birdData = {
     {
       species: 'Osprey',
       fileExt: 'osprey',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'annual migrant',
       frequency: 'less common',
       notes: 'flyover',
@@ -224,7 +224,7 @@ const birdData = {
     {
       species: 'Bald Eagle',
       fileExt: 'baldEagle',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'annual migrant',
       frequency: 'less common',
       notes: 'flyover',
@@ -236,7 +236,7 @@ const birdData = {
     {
       species: 'Northern Harrier',
       fileExt: 'northernHarrier',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'annual migrant',
       frequency: 'less common',
       notes: 'flyover, also known as a Marsh Hawk',
@@ -248,7 +248,7 @@ const birdData = {
     {
       species: 'Red-shouldered Hawk',
       fileExt: 'redShoulderedHawk',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'annual migrant',
       frequency: 'less common',
       notes: 'flyover, infrequently in the park',
@@ -260,7 +260,7 @@ const birdData = {
     {
       species: 'Broad-winged Hawk',
       fileExt: 'broadWingedHawk',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'annual migrant',
       frequency: 'less common',
       notes: 'flyover',
@@ -272,7 +272,7 @@ const birdData = {
     {
       species: 'Sharp-shinned Hawk',
       fileExt: 'sharpShinnedHawk',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'annual migrant',
       frequency: 'common',
       notes: 'flyover, often in the park',
@@ -284,7 +284,7 @@ const birdData = {
     {
       species: "Cooper's Hawk",
       fileExt: 'coopersHawk',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'annual migrant',
       frequency: 'common',
       notes: 'flyover, occasionally winters',
@@ -296,7 +296,7 @@ const birdData = {
     {
       species: 'Red-tailed Hawk',
       fileExt: 'redTailedHawk',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'year-round',
       frequency: 'common',
       notes: 'nests on 5th Avenue',
@@ -308,7 +308,7 @@ const birdData = {
     {
       species: 'American Kestrel',
       fileExt: 'americanKestrel',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'year-round',
       frequency: 'less common',
       notes: 'nests in NYC',
@@ -320,7 +320,7 @@ const birdData = {
     {
       species: 'Merlin',
       fileExt: 'merlin',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'annual migrant',
       frequency: 'less common',
       notes: '',
@@ -333,7 +333,7 @@ const birdData = {
     {
       species: 'Peregrine Falcon',
       fileExt: 'peregrineFalcon',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'year-round',
       frequency: 'less common',
       notes: '',
@@ -345,7 +345,7 @@ const birdData = {
     {
       species: 'Northern Goshawk',
       fileExt: 'northernGoshawk',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'infrequent',
       frequency: 'less common',
       notes: 'flyover, infrequently in the park',
@@ -357,7 +357,7 @@ const birdData = {
     {
       species: 'Rough-legged hawk',
       fileExt: 'roughLeggedHawk',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'infrequent',
       frequency: 'less common',
       notes: 'flyover',
@@ -369,7 +369,7 @@ const birdData = {
     {
       species: 'Golden Eagle',
       fileExt: 'goldenEagle',
-      category: 'Birds of Prey',
+      category: 'birdsOfPrey',
       status: 'infrequent',
       frequency: 'less common',
       notes: 'flyover',
