@@ -6,37 +6,59 @@ import Scoreboard from './Scoreboard';
 import GameSettings from './GameSettings';
 
 function App() {
-  const [birdType, setBirdType] = useState('all');
-  const [gridSize, setGridSize] = useState(9);
-  const [difficulty, setDifficulty] = useState('easy'); //whether multiple pictures of the same bird can be used
-  const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
-
-  useEffect(() => {
-    if (highScore <= score) {
-      setHighScore(prevHighScore => score);
-    }
-  }, [score]);
-  const updateScore = () => {
-    setScore(prevScore => prevScore + 1);
+  const [difficulty, setDifficulty] = useState('easy');
+  const [mode, setMode] = useState('learning');
+  const [selectedBirds, setSelectedBirds] = useState({
+    allBirds: true,
+    birdsOfPrey: false,
+    herons: false,
+    waterfowl: false,
+  });
+  const toggleDifficulty = event => {
+    let newDifficulty = event.target.parentElement.id;
+    setDifficulty(prevState => newDifficulty);
   };
+  const toggleMode = event => {
+    let newMode = event.target.parentElement.id;
+    setMode(prevState => newMode);
+  };
+  function selectBirds(event) {
+    let birdType = event.target.parentElement.id;
+    if (birdType === 'allBirds') {
+      setSelectedBirds(prevState => {
+        return {
+          ['waterfowl']: false,
+          ['herons']: false,
+          ['birdsOfPrey']: false,
+          ['allBirds']: !prevState['allBirds'],
+        };
+      });
+    } else {
+      setSelectedBirds(prevState => {
+        return {
+          ...prevState,
+          ['allBirds']: false,
+          [birdType]: !prevState[birdType],
+        };
+      });
+    }
+  }
   return (
     <div className="App">
       <div className="left">
-        <GameSettings />
+        <GameSettings
+          difficulty={difficulty}
+          toggleDifficulty={toggleDifficulty}
+          mode={mode}
+          toggleMode={toggleMode}
+          selectedBirds={selectedBirds}
+          selectBirds={selectBirds}
+        />
         <Instructions />
       </div>
       <div className="right">
         <div className="header"> </div>
-        {/* <Scoreboard score={score} highScore={highScore} /> */}
-
-        <CardContainer
-          size={gridSize}
-          birdType={birdType}
-          score={score}
-          highScore={highScore}
-          updateScore={updateScore}
-        />
+        <CardContainer selectedBirds={selectedBirds} />
       </div>
     </div>
   );

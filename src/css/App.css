@@ -102,8 +102,8 @@ a:visited {
   border: 6px solid var(--lightPink);
 }
 .leftCardStack {
-  width: 250px;
-  margin-bottom: 12em;
+  width: 220px;
+  margin-bottom: 14em;
 }
 .stackedCards {
   position: relative;

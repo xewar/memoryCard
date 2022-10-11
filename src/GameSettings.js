@@ -1,43 +1,15 @@
 import React, { useState } from 'react';
 
-const GameSettings = () => {
-  const [difficulty, setDifficulty] = useState('easy');
-  const [mode, setMode] = useState('learning');
-  const [selectedBirds, setSelectedBirds] = useState({
-    allBirds: true,
-    birdsOfPrey: false,
-    herons: false,
-    waterfowl: false,
-  });
-  const toggleDifficulty = event => {
-    let newDifficulty = event.target.parentElement.id;
-    setDifficulty(prevState => newDifficulty);
-  };
-  const toggleMode = event => {
-    let newMode = event.target.parentElement.id;
-    setMode(prevState => newMode);
-  };
-  function selectBirds(event) {
-    let birdType = event.target.parentElement.id;
-    if (birdType === 'allBirds') {
-      setSelectedBirds(prevState => {
-        return {
-          ['waterfowl']: false,
-          ['herons']: false,
-          ['birdsOfPrey']: false,
-          ['allBirds']: !prevState['allBirds'],
-        };
-      });
-    } else {
-      setSelectedBirds(prevState => {
-        return {
-          ...prevState,
-          ['allBirds']: false,
-          [birdType]: !prevState[birdType],
-        };
-      });
-    }
-  }
+const GameSettings = props => {
+  const {
+    mode,
+    difficulty,
+    selectedBirds,
+    selectBirds,
+    toggleDifficulty,
+    toggleMode,
+  } = props;
+
   return (
     <div className="settings">
       <div className="settingsGroup">

@@ -4,6 +4,7 @@ import uniqid from 'uniqid';
 import birdData from './birdData.js';
 
 const CardContainer = props => {
+  const [nextCard, setNextCard] = useState(false);
   const displayCurrentBird = () => {};
   const displayPrevBird = () => {};
   return (
@@ -11,23 +12,25 @@ const CardContainer = props => {
       <div className="leftCardStack">
         <div className="stackedCards">
           <div className="cardBack card bottom">
-            <div class="cardText">Birds of NY</div>
+            <div className="cardText">Birds of NY</div>
           </div>
           <div className="cardBack card middle">
-            <div class="cardText">Birds of NY</div>
+            <div className="cardText">Birds of NY</div>
           </div>
           <div className="cardBack card top">
-            <div class="cardText">Birds of NY</div>
+            <div className="cardText">Birds of NY</div>
           </div>
         </div>
       </div>
-
       <div className="currentCard card front">
-        <div class="birdPhoto">{displayCurrentBird}</div>
+        <div className="birdPhoto">{displayCurrentBird()}</div>
       </div>
-      <div className="rightCardStack card">
-        <div class="smallBirdPhoto">{displayPrevBird}</div>
-      </div>
+      <div></div>{' '}
+      {nextCard && (
+        <div className="rightCardStack card">
+          <div className="smallBirdPhoto">{displayPrevBird()}</div>
+        </div>
+      )}
     </div>
   );
 };
