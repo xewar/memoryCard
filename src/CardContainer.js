@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
-import uniqid from 'uniqid';
 import birdData from './birdData.js';
 
 const CardContainer = props => {
@@ -18,12 +17,12 @@ const CardContainer = props => {
     let deck = [];
     if (selectedBirds.allBirds) {
       for (let bird of birds) {
-        deck.push(bird.fileExt);
+        deck.push(bird);
       }
     } else {
       for (let bird of birds) {
         if (selectedBirds[bird.category]) {
-          deck.push(bird.fileExt);
+          deck.push(bird);
         }
       }
     }
@@ -40,7 +39,6 @@ const CardContainer = props => {
   //each bird has three photos, and each time the user changes the difficulty, they'll see a different set
   //of photos. For example, with easy they'll see one photo of each bird, but the exact selection of photos will change each time/be randomized
   const randomizeCardsByDifficulty = deck => {
-    let difficultyAdjustedDeck = [];
     let chooseRandomNumbers = () => {
       let num;
       difficulty === 'easy'
@@ -57,11 +55,12 @@ const CardContainer = props => {
       }
       return [randArr, num];
     };
-
+    let difficultyAdjustedDeck = [];
     for (let card of deck) {
       let [randArr, num] = chooseRandomNumbers();
       for (let i = 0; i < num; i++) {
-        difficultyAdjustedDeck.push(`${card}${randArr[i]}`);
+        card.tempFileExt = `${card.fileExt}${randArr[i]}`;
+        difficultyAdjustedDeck.push(card);
       }
     }
     return difficultyAdjustedDeck;
@@ -70,48 +69,39 @@ const CardContainer = props => {
     let newDeck = createDeck();
     newDeck = randomizeCardsByDifficulty(newDeck);
     newDeck = shuffleDeck(newDeck);
-    let deckInUse = {
-      cardsToReview: newDeck,
-      currentCard: newDeck.shift(),
-      completedCards: [],
-    };
+
     setCurrentDeck(prevDeck => {
       return {
-        deckInUse,
+        cardsToReview: newDeck,
+        currentCard: newDeck.shift(),
+        completedCards: [],
       };
     });
   }, [difficulty, mode, selectedBirds]);
   console.log(currentDeck);
 
-  //each time the difficulty, mode, or selected birds changes, make a new set of decks
-  //divide the cards into three piles -- cardsToReview, currentCard, completedCards
   //interactions - pressing 1 or 2 moves card back into cards to review, 3 moves it to completed, and space or click turns it over
-  const displayCurrentBird = () => {};
   const displayPrevBird = () => {};
   return (
     <div className="cardContainer">
-      <div className="leftCardStack">
-        <div className="stackedCards">
-          <div className="cardBack card bottom">
-            <div className="cardText">Birds of NY</div>
-          </div>
-          <div className="cardBack card middle">
-            <div className="cardText">Birds of NY</div>
-          </div>
-          <div className="cardBack card top">
-            <div className="cardText">Birds of NY</div>
-          </div>
+      <div className="miniCardStack leftSide">
+        <div className="cardBack card bottom">
+          <div className="cardText">Birds of NY</div>
+        </div>
+        <div className="cardBack card middle">
+          <div className="cardText">Birds of NY</div>
+        </div>
+        <div className="cardBack card top">
+          <div className="cardText">Birds of NY</div>
         </div>
       </div>
       <div className="centerCard">
-        <Card bird={currentDeck.currentCard} />
+        <Card currentBird={currentDeck.currentCard} />
       </div>
-      <div></div>{' '}
-      {nextCard && (
-        <div className="rightCardStack card">
-          <div className="smallBirdPhoto">{displayPrevBird()}</div>
-        </div>
-      )}
+      <div></div>
+      <div className="miniCardStack rightSide empty                                          ">
+        <div className="smallBirdPhoto">{displayPrevBird()}</div>
+      </div>
     </div>
   );
 };
