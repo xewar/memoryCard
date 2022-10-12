@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ReactComponent as PlusSign } from './plus.svg';
 
 const Instructions = () => {
@@ -53,6 +53,7 @@ const Instructions = () => {
           This game features birds from{' '}
           <a
             target="_blank"
+            rel="noreferrer"
             href="https://www.nycaudubon.org/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbWw2YTJ0MGJISTJNV2RrYlRKd2NIbDZhRzFtYlRSNmFYQnRjQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtKcGNtUnpYMjltWDBObGJuUnlZV3hmVUdGeWF5MXZabVpwWTJsaGJDNXdaR1lpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjBKcGNtUnpYMjltWDBObGJuUnlZV3hmVUdGeWF5MXZabVpwWTJsaGJDNXdaR1lHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWhSaGNIQnNhV05oZEdsdmJpOXdaR1lHT3daVSIsImV4cCI6IjIwMjItMTAtMTBUMTc6MzA6NTIuOTg3WiIsInB1ciI6ImJsb2Jfa2V5In19--68fdac3f037b12eb9a172ca8967f3e7402ad29a1/Birds_of_Central_Park-official.pdf?content_type=application%2Fpdf&disposition=inline%3B+filename%3D%22Birds_of_Central_Park-official.pdf%22%3B+filename%2A%3DUTF-8%27%27Birds_of_Central_Park-official.pdf"
           >
             the Birds of Central Park
@@ -60,14 +61,18 @@ const Instructions = () => {
           , an annotated checklist from NYC Audobon Society, the Central Park
           Conservancy, and the NYC Parks Department. The photos and descriptions
           of each bird are from{' '}
-          <a href="https://ebird.org/" target="_blank">
+          <a href="https://ebird.org/" target="_blank" rel="noreferrer">
             eBird
           </a>{' '}
           and{' '}
-          <a href="https://merlin.allaboutbirds.org/" target="_blank">
+          <a
+            href="https://merlin.allaboutbirds.org/"
+            target="_blank"
+            rel="noreferrer"
+          >
             Merlin
           </a>
-          , two projects from Cornell's Orinthology Lab.
+          , two projects from the Cornell Lab of Ornithology.
         </div>
       )}
     </div>
