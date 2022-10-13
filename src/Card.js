@@ -2,34 +2,35 @@ import React, { useState } from 'react';
 import birdData from './birdData.js';
 
 const Card = props => {
-  const [cardFace, setCardFace] = useState('front');
-  const { currentBird } = props;
+  const { currentBird, cardFace } = props;
   const birds = birdData.birds;
-  document.addEventListener('keyup', event => {
-    if (event.code === 'Space') {
-      toggleCardFace();
-    }
-  });
 
   const displayCurrentBird = birdId => {
     if (cardFace === 'back') {
-      return <div className="birdName">{currentBird.species}</div>;
+      return (
+        <div className="centerCardBack">
+          <div className="topInformation">
+            <div className="birdSpecies">{currentBird.species}</div>
+            <div className="birdStatus">
+              {currentBird.frequency}, {currentBird.status}
+            </div>
+          </div>
+          <div className="birdIdentification">{currentBird.identification}</div>
+        </div>
+      );
+    } else if (cardFace === 'front') {
+      return (
+        <div className="centerCardFront">
+          <img
+            className="birdPhoto"
+            src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}
+          ></img>
+        </div>
+      );
     }
   };
-  const toggleCardFace = () => {
-    cardFace === 'front' ? setCardFace('back') : setCardFace('front');
-  };
-  return (
-    <div className="currentCard card front" onClick={toggleCardFace}>
-      {cardFace === 'front' && (
-        <img
-          className="birdPhoto"
-          src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}
-        ></img>
-      )}
-      {displayCurrentBird()}
-    </div>
-  );
+
+  return <div className="currentCard card">{displayCurrentBird()}</div>;
 };
 
 export default Card;

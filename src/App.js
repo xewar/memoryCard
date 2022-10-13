@@ -42,6 +42,12 @@ function App() {
       });
     }
   }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === '3') {
+      console.log(event);
+    }
+  });
   return (
     <div className="App">
       <div className="left">

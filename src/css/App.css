@@ -5,6 +5,7 @@
   --text: #94a3b8;
   --background: white;
   --lightPink: #fff4f7;
+  --mediumPink: #ffdde6;
   --darkPink: #ffacbd;
   --darkerPink: #ff859f;
 }
@@ -95,9 +96,15 @@ a:visited {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  position: relative;
 }
+.leftStack,
+.miniCardStack {
+  margin-bottom: 80px;
+}
+
 .miniCardStack,
-.cardBack {
+.leftCardBack {
   width: 220px;
   height: 350px;
   border: 4px dashed var(--lightPink);
@@ -109,7 +116,7 @@ a:visited {
   border-radius: 20px;
   border: 6px solid var(--lightPink);
 }
-.cardBack {
+.leftCardBack {
   background-color: var(--darkPink);
   border: 4px solid var(--lightPink);
   position: absolute;
@@ -149,4 +156,95 @@ p {
   border-radius: 20px;
   margin-top: 2em;
   object-fit: cover;
+}
+.centerCardBack {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.birdIdentification {
+  border: 6px solid var(--lightPink);
+  border-radius: 20px;
+  margin-top: 1em;
+  background-color: white;
+  display: flex;
+  width: 250px;
+  max-height: 350px;
+  padding: 0.5em;
+  padding-bottom: 1em;
+  overflow: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.birdIdentification::-webkit-scrollbar {
+  display: none;
+}
+
+.topInformation {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.birdSpecies {
+  font-weight: 900;
+  font-size: 2em;
+  color: var(--lightPink);
+}
+.birdStatus,
+.birdFrequency {
+  text-transform: capitalize;
+  font-style: italic;
+}
+/* _______________________KEYBOARD SHORTCUTS STYLING  __________________________ */
+
+.keyboardShortcuts {
+  position: absolute;
+  bottom: 20px;
+  left: 100px;
+  width: 170px;
+  padding: 12px;
+  /* border: 4px solid var(--lightPink); */
+  border-radius: 10px;
+  background-color: var(--lightPink);
+  margin: 0;
+  text-align: center;
+}
+.grow {
+  content: '';
+  transition: all 0.3s ease;
+}
+.grow:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.1);
+  cursor: pointer;
+  background-color: var(--mediumPink);
+}
+
+.keyboardShortcutsHeader {
+  font-weight: 600;
+  color: var(--darkPink);
+  font-size: 1.25em;
+  margin-bottom: 5px;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+.shortcut {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 0.25em;
+}
+.shortcutKey {
+  font-style: italic;
+  font-weight: 600;
+}
+.shortcutName {
+  text-align: right;
 }
