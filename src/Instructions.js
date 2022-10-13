@@ -53,8 +53,7 @@ const Instructions = () => {
           This game features birds from{' '}
           <a
             target="_blank"
-            rel="noreferrer"
-            href="https://www.nycaudubon.org/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbWw2YTJ0MGJISTJNV2RrYlRKd2NIbDZhRzFtYlRSNmFYQnRjQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtKcGNtUnpYMjltWDBObGJuUnlZV3hmVUdGeWF5MXZabVpwWTJsaGJDNXdaR1lpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjBKcGNtUnpYMjltWDBObGJuUnlZV3hmVUdGeWF5MXZabVpwWTJsaGJDNXdaR1lHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWhSaGNIQnNhV05oZEdsdmJpOXdaR1lHT3daVSIsImV4cCI6IjIwMjItMTAtMTBUMTc6MzA6NTIuOTg3WiIsInB1ciI6ImJsb2Jfa2V5In19--68fdac3f037b12eb9a172ca8967f3e7402ad29a1/Birds_of_Central_Park-official.pdf?content_type=application%2Fpdf&disposition=inline%3B+filename%3D%22Birds_of_Central_Park-official.pdf%22%3B+filename%2A%3DUTF-8%27%27Birds_of_Central_Park-official.pdf"
+            href="https://www.nycaudubon.org/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbWw2YTJ0MGJISTJNV2RrYlRKd2NIbDZhRzFtYlRSNmFYQnRjQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtKcGNtUnpYMjltWDBObGJuUnlZV3hmVUdGeWF5MXZabVpwWTJsaGJDNXdaR1lpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjBKcGNtUnpYMjltWDBObGJuUnlZV3hmVUdGeWF5MXZabVpwWTJsaGJDNXdaR1lHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWhSaGNIQnNhV05oZEdsdmJpOXdaR1lHT3daVSIsImV4cCI6IjIwMjItMTAtMTNUMTQ6NDE6MzEuOTkxWiIsInB1ciI6ImJsb2Jfa2V5In19--86f07ee0b7eeae4feaaafb2a133315d5f33a074e/Birds_of_Central_Park-official.pdf"
           >
             the Birds of Central Park
           </a>

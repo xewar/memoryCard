@@ -3,7 +3,7 @@ import birdData from './birdData.js';
 
 const Card = props => {
   const [cardFace, setCardFace] = useState('front');
-  const { fileExt, birdId } = props;
+  const { currentBird } = props;
   const birds = birdData.birds;
   document.addEventListener('keyup', event => {
     if (event.code === 'Space') {
@@ -13,7 +13,7 @@ const Card = props => {
 
   const displayCurrentBird = birdId => {
     if (cardFace === 'back') {
-      return <div className="birdName">Red-Tailed Hawk</div>;
+      return <div className="birdName">{currentBird.species}</div>;
     }
   };
   const toggleCardFace = () => {
@@ -24,7 +24,7 @@ const Card = props => {
       {cardFace === 'front' && (
         <img
           className="birdPhoto"
-          src={`./images/birdsOfCP/${fileExt}.jpeg`}
+          src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}
         ></img>
       )}
       {displayCurrentBird()}

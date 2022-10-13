@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import birdData from './birdData.js';
+import uniqid from 'uniqid';
 
 const CardContainer = props => {
   const { selectedBirds, difficulty, mode } = props;
@@ -78,30 +79,52 @@ const CardContainer = props => {
       };
     });
   }, [difficulty, mode, selectedBirds]);
-  console.log(currentDeck);
-
+  function displayCardsToReview() {
+    const displayStack = () => {
+      //this is just for the effect of cards stacked on top of each other
+      let stack = currentDeck.cardsToReview.length;
+      stack > 2 ? (stack = Array(3).fill(0)) : (stack = Array(stack).fill(0));
+      let count = 0;
+      return stack.map(item => {
+        return (
+          <div
+            className="cardBack"
+            key={uniqid()}
+            id={count++}
+            style={{ marginLeft: `${count / 2}em` }}
+          >
+            <div className="cardBackText">
+              <p>Birds of</p>
+              <p>NY</p>
+            </div>
+          </div>
+        );
+      });
+    };
+    return <div className="leftStack">{displayStack()}</div>;
+  }
+  function displayCompletedCards() {
+    return (
+      <div className="miniCardStack">
+        <div className="smallBirdPhoto"></div>
+      </div>
+    );
+  }
   //interactions - pressing 1 or 2 moves card back into cards to review, 3 moves it to completed, and space or click turns it over
   const displayPrevBird = () => {};
   return (
     <div className="cardContainer">
-      <div className="miniCardStack leftSide">
-        <div className="cardBack card bottom">
-          <div className="cardText">Birds of NY</div>
-        </div>
-        <div className="cardBack card middle">
-          <div className="cardText">Birds of NY</div>
-        </div>
-        <div className="cardBack card top">
-          <div className="cardText">Birds of NY</div>
-        </div>
-      </div>
+      {!currentDeck.cardsToReview.length && (
+        <div className="miniCardStack"> </div>
+      )}
+      {displayCardsToReview()}
       <div className="centerCard">
         <Card currentBird={currentDeck.currentCard} />
       </div>
-      <div></div>
-      <div className="miniCardStack rightSide empty                                          ">
-        <div className="smallBirdPhoto">{displayPrevBird()}</div>
-      </div>
+      {!currentDeck.completedCards.length && (
+        <div className="miniCardStack"> </div>
+      )}
+      {/* {displayCompletedCards()} */}
     </div>
   );
 };
