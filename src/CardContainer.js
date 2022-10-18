@@ -71,8 +71,6 @@ const CardContainer = props => {
   };
   //deck is created in useEffect when user changes game settings
   useEffect(() => {
-    console.log('is this going');
-
     let newDeck = createDeck();
     newDeck = randomizeCardsByDifficulty(newDeck);
     newDeck = shuffleDeck(newDeck);
@@ -88,7 +86,7 @@ const CardContainer = props => {
 
   function displayCardsToReview() {
     const displayStack = () => {
-      //this is just for the effect of cards stacked on top of each other
+      //this is for the effect of cards stacked on top of each other on the left side
       let stack = currentDeck.cardsToReview.length;
       stack > 2 ? (stack = Array(3).fill(0)) : (stack = Array(stack).fill(0));
       let count = 0;
@@ -121,11 +119,12 @@ const CardContainer = props => {
   //interactions - pressing 1 or 2 moves card back into cards to review, 3 moves it to completed, and space or click turns it over
   function moveToCompletedPile() {
     setCurrentDeck(prevDeck => {
-      console.log('running');
+      let tempCompletedCards = prevDeck.completedCards;
+      tempCompletedCards.push(prevDeck.currentCard);
       return {
         ...prevDeck,
         currentCard: prevDeck.cardsToReview.shift(),
-        // completedCards: prevDeck.completedCards.push(prevDeck.currentCard),
+        completedCards: tempCompletedCards,
       };
     });
   }
@@ -133,20 +132,51 @@ const CardContainer = props => {
     cardFace === 'front' ? setCardFace('back') : setCardFace('front');
   };
 
-  document.addEventListener('keydown', event => {
-    if (event.code === 'Space') {
+  function moveBackToDeck(e, currentDeck) {
+    let deckLength = currentDeck.cardsToReview.length;
+    let midpoint = Math.round(deckLength / 2);
+    let newCardsToReview = currentDeck.cardsToReview;
+    let newPlace;
+    if (e.key === '1') {
+      //'hard' shifts card towards the back of deck
+      newPlace = Math.floor(Math.random() * (deckLength - midpoint)) + midpoint;
+    }
+    if (e.key === '2') {
+      //'medium' shifts card towards the front of deck
+      newPlace = Math.floor(Math.random() * midpoint);
+    }
+    newCardsToReview.splice(newPlace, 0, currentDeck.currentCard);
+    console.log(newCardsToReview);
+    setCurrentDeck(prevDeck => {
+      return {
+        ...prevDeck,
+        currentCard: prevDeck.cardsToReview.shift(),
+        cardsToReview: newCardsToReview,
+      };
+    });
+  }
+
+  function handleKeydown(e) {
+    if (e.code === 'Space') {
       toggleCardFace();
     }
-    if (event.key === '3') {
-      moveToCompletedPile(event);
+    if (e.key === '3') {
+      if (e.defaultPrevented) return; // Exits here if event has been handled
+      e.preventDefault();
+      moveToCompletedPile(e);
       setCardFace('front');
     }
-    // if(event.code === 1){
-    //   moveToFrontOfDeck()
-    // }
-    // if(event.code === 2){
-    //   moveToBackOfDeck()
-    // }
+
+    if (e.key === '1' || e.key === '2') {
+      if (e.defaultPrevented) return; // Exits here if event has been handled
+      e.preventDefault();
+      moveBackToDeck(e, currentDeck);
+      setCardFace('front');
+    }
+  }
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
   });
   return (
     <div className="cardContainer">
