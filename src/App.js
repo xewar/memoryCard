@@ -23,13 +23,27 @@ function App() {
   };
   function selectBirds(event) {
     let birdType = event.target.parentElement.id;
+    let numFalse = Object.values(selectedBirds).filter(
+      bird => bird === false
+    ).length;
+    let selectedBirdSize = Object.keys(selectedBirds).length;
     if (birdType === 'allBirds') {
       setSelectedBirds(prevState => {
         return {
           ['waterfowl']: false,
           ['herons']: false,
           ['birdsOfPrey']: false,
-          ['allBirds']: !prevState['allBirds'],
+          ['allBirds']: true,
+        };
+      });
+    }
+    //reverts to allBirds if the user deselects everything
+    else if (selectedBirds[birdType] && numFalse === selectedBirdSize - 1) {
+      setSelectedBirds(prevState => {
+        return {
+          ...prevState,
+          ['allBirds']: true,
+          [birdType]: !prevState[birdType],
         };
       });
     } else {
@@ -43,11 +57,6 @@ function App() {
     }
   }
 
-  document.addEventListener('keydown', event => {
-    if (event.key === '3') {
-      console.log(event);
-    }
-  });
   return (
     <div className="App">
       <div className="left">
