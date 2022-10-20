@@ -142,19 +142,33 @@ a:visited {
 p {
   margin: 0;
 }
-
+.emptyCurrentCard {
+  width: 330px;
+  height: 525px;
+  border-radius: 35px;
+  display: flex;
+  justify-content: center;
+  border: 6px dashed var(--lightPink);
+  font-size: 40px;
+  color: var(--lightPink);
+  font-weight: 900;
+  line-height: 1.5em;
+  padding: 10px;
+  padding-left: 15px;
+}
 .currentCard {
   width: 330px;
   height: 525px;
   display: flex;
   justify-content: center;
+  border-radius: 35px;
 }
 .birdPhoto {
-  width: 250px;
-  height: 350px;
+  width: 290px;
+  height: 450px;
   border: 6px solid var(--lightPink);
-  border-radius: 20px;
-  margin-top: 2em;
+  border-radius: 30px;
+  margin-top: 0.9em;
   object-fit: cover;
 }
 .centerCardBack {
@@ -198,6 +212,31 @@ p {
 .birdFrequency {
   text-transform: capitalize;
   font-style: italic;
+}
+.miniCard {
+  width: 220px;
+  height: 350px;
+  border-radius: 25px;
+  background-color: var(--darkPink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.2em;
+  margin-bottom: 10px;
+}
+.miniBirdPhoto {
+  width: 190px;
+  height: 295px;
+  margin-top: 0.5em;
+  object-fit: cover;
+  border: 6px solid var(--lightPink);
+  border-radius: 20px;
+}
+.smallBirdName {
+  font-weight: 900;
+  color: var(--lightPink);
+  font-size: 1.1em;
 }
 /* _______________________KEYBOARD SHORTCUTS STYLING  __________________________ */
 
