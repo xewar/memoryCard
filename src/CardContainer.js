@@ -5,7 +5,6 @@ import uniqid from 'uniqid';
 
 const CardContainer = props => {
   const { selectedBirds, difficulty, mode } = props;
-  const [nextCard, setNextCard] = useState(false);
   const [cardFace, setCardFace] = useState('front');
 
   const [currentDeck, setCurrentDeck] = useState({
@@ -42,7 +41,7 @@ const CardContainer = props => {
   //This function randomizes one, two, or three pictures of the bird for each difficulty level -
   //each bird has three photos, and each time the user changes the difficulty, they'll see a different set
   //of photos. For example, with easy they'll see one photo of each bird, but the exact selection of photos will change each time/be randomized
-  const randomizeCardsByDifficulty = deck => {
+  const addCardsByDifficulty = deck => {
     let chooseRandomNumbers = () => {
       let num;
       difficulty === 'easy'
@@ -63,8 +62,9 @@ const CardContainer = props => {
     for (let card of deck) {
       let [randArr, num] = chooseRandomNumbers();
       for (let i = 0; i < num; i++) {
-        card.tempFileExt = `${card.fileExt}${randArr[i]}`;
-        difficultyAdjustedDeck.push(card);
+        let cardClone = structuredClone(card);
+        cardClone.tempFileExt = `${cardClone.fileExt}${randArr[i]}`;
+        difficultyAdjustedDeck.push(cardClone);
       }
     }
     return difficultyAdjustedDeck;
@@ -72,13 +72,13 @@ const CardContainer = props => {
   //deck is created in useEffect when user changes game settings
   useEffect(() => {
     let newDeck = createDeck();
-    newDeck = randomizeCardsByDifficulty(newDeck);
-    newDeck = shuffleDeck(newDeck);
+    let difficultyAdjustedDeck = addCardsByDifficulty(newDeck);
+    let shuffledDeck = shuffleDeck(difficultyAdjustedDeck);
 
     setCurrentDeck(prevDeck => {
       return {
-        cardsToReview: newDeck,
-        currentCard: newDeck.shift(),
+        cardsToReview: shuffledDeck,
+        currentCard: shuffledDeck.shift(),
         completedCards: [],
       };
     });
