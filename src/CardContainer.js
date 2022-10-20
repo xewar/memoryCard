@@ -153,7 +153,6 @@ const CardContainer = props => {
       newPlace = Math.floor(Math.random() * midpoint);
     }
     newCardsToReview.splice(newPlace, 0, currentDeck.currentCard);
-    console.log(newCardsToReview);
     setCurrentDeck(prevDeck => {
       return {
         ...prevDeck,
@@ -182,10 +181,13 @@ const CardContainer = props => {
     }
   }
   useEffect(() => {
-    document.addEventListener('keydown', handleKeydown);
+    if (currentDeck.currentCard) {
+      document.addEventListener('keydown', handleKeydown);
+    } else {
+      document.removeEventListener('keydown', handleKeydown);
+    }
     return () => document.removeEventListener('keydown', handleKeydown);
-  });
-  console.log(currentDeck.currentCard);
+  }, [currentDeck]);
   return (
     <div className="cardContainer">
       {currentDeck.cardsToReview.length ? (
@@ -199,7 +201,7 @@ const CardContainer = props => {
           <Card
             currentBird={currentDeck.currentCard}
             cardFace={cardFace}
-            onClick={toggleCardFace}
+            toggleCardFace={toggleCardFace}
           />
         ) : (
           <div className="emptyCurrentCard">Good job!</div>

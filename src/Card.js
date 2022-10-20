@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import birdData from './birdData.js';
 
 const Card = props => {
-  const { currentBird, cardFace } = props;
+  const { currentBird, cardFace, toggleCardFace } = props;
   const birds = birdData.birds;
 
   const displayCurrentBird = birdId => {
     if (cardFace === 'back') {
       return (
-        <div className="centerCardBack">
+        <div className="centerCardBack" onClick={toggleCardFace}>
           <div className="topInformation">
             <div className="birdSpecies">{currentBird.species}</div>
             <div className="birdStatus">
@@ -20,7 +20,7 @@ const Card = props => {
       );
     } else if (cardFace === 'front') {
       return (
-        <div className="centerCardFront">
+        <div className="centerCardFront" onClick={toggleCardFace}>
           <img
             className="birdPhoto"
             src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}

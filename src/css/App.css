@@ -148,6 +148,7 @@ p {
   border-radius: 35px;
   display: flex;
   justify-content: center;
+  align-items: center;
   border: 6px dashed var(--lightPink);
   font-size: 40px;
   color: var(--lightPink);
@@ -222,19 +223,19 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 0.2em;
+  gap: 0.3em;
   margin-bottom: 10px;
 }
 .miniBirdPhoto {
   width: 190px;
-  height: 295px;
+  height: 285px;
   margin-top: 0.5em;
   object-fit: cover;
   border: 6px solid var(--lightPink);
   border-radius: 20px;
 }
 .smallBirdName {
-  font-weight: 900;
+  font-weight: 800;
   color: var(--lightPink);
   font-size: 1.1em;
 }
