@@ -16,10 +16,12 @@ function App() {
   const toggleDifficulty = event => {
     let newDifficulty = event.target.parentElement.id;
     setDifficulty(prevState => newDifficulty);
+    event.target.blur();
   };
   const toggleMode = event => {
     let newMode = event.target.parentElement.id;
     setMode(prevState => newMode);
+    event.target.blur();
   };
   function selectBirds(event) {
     let birdType = event.target.parentElement.id;
@@ -55,6 +57,7 @@ function App() {
         };
       });
     }
+    event.target.blur();
   }
 
   return (
