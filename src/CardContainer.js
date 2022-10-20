@@ -109,9 +109,16 @@ const CardContainer = props => {
     return <div className="leftStack">{displayStack()}</div>;
   }
   function displayCompletedCards() {
+    let currentBird = currentDeck.completedCards[0];
     return (
-      <div className="miniCardStack">
-        <div className="smallBirdPhoto">{currentDeck.completedCards?.[0]}</div>
+      <div className="miniCard">
+        <img
+          className="miniBirdPhoto"
+          src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}
+        ></img>
+        <div className="smallBirdName">
+          {currentDeck.completedCards[0].species}
+        </div>
       </div>
     );
   }
@@ -120,7 +127,7 @@ const CardContainer = props => {
   function moveToCompletedPile() {
     setCurrentDeck(prevDeck => {
       let tempCompletedCards = prevDeck.completedCards;
-      tempCompletedCards.push(prevDeck.currentCard);
+      tempCompletedCards.unshift(prevDeck.currentCard);
       return {
         ...prevDeck,
         currentCard: prevDeck.cardsToReview.shift(),
@@ -178,23 +185,33 @@ const CardContainer = props => {
     document.addEventListener('keydown', handleKeydown);
     return () => document.removeEventListener('keydown', handleKeydown);
   });
+  console.log(currentDeck.currentCard);
   return (
     <div className="cardContainer">
-      {!currentDeck.cardsToReview.length && (
+      {currentDeck.cardsToReview.length ? (
+        displayCardsToReview()
+      ) : (
         <div className="miniCardStack"> </div>
       )}
-      {displayCardsToReview()}
+
       <div className="centerCard">
-        <Card
-          currentBird={currentDeck.currentCard}
-          cardFace={cardFace}
-          onClick={toggleCardFace}
-        />
+        {currentDeck.currentCard ? (
+          <Card
+            currentBird={currentDeck.currentCard}
+            cardFace={cardFace}
+            onClick={toggleCardFace}
+          />
+        ) : (
+          <div className="emptyCurrentCard">Good job!</div>
+        )}
       </div>
-      {!currentDeck.completedCards.length && (
-        <div className="miniCardStack"> </div>
-      )}
-      {/* {displayCompletedCards()} */}
+      <div className="rightSide">
+        {currentDeck.completedCards.length ? (
+          displayCompletedCards()
+        ) : (
+          <div className="miniCardStack"></div>
+        )}
+      </div>
       <div
         className="keyboardShortcuts grow"
         onClick={() => setShowShortcuts(prevState => !prevState)}
