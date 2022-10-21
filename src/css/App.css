@@ -11,6 +11,7 @@
 }
 body {
   background-color: var(--lightPink);
+  box-sizing: border-box;
 }
 .App {
   display: grid;
@@ -163,14 +164,31 @@ p {
   display: flex;
   justify-content: center;
   border-radius: 35px;
+  gap: 2em;
 }
 .birdPhoto {
   width: 290px;
-  height: 450px;
+  height: 420px;
   border: 6px solid var(--lightPink);
   border-radius: 30px;
   margin-top: 0.9em;
   object-fit: cover;
+}
+.guess {
+  box-sizing: border-box;
+  width: 290px;
+  height: 3em;
+  border: 4px solid var(--lightPink);
+  border-radius: 12px;
+}
+input:focus {
+  outline: none;
+}
+.centerCardFront {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .centerCardBack {
   display: flex;

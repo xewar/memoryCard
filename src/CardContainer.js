@@ -163,7 +163,7 @@ const CardContainer = props => {
   }
 
   function handleKeydown(e) {
-    if (e.code === 'Space') {
+    if (e.code === 'Space' && mode === 'learning') {
       toggleCardFace();
     }
     if (e.key === '3') {
@@ -180,14 +180,19 @@ const CardContainer = props => {
       setCardFace('front');
     }
   }
+  const handleClick = () => {
+    if (mode === 'learning') {
+      toggleCardFace();
+    }
+  };
+
   useEffect(() => {
-    if (currentDeck.currentCard) {
-      document.addEventListener('keydown', handleKeydown);
-    } else {
+    document.addEventListener('keydown', handleKeydown);
+    if (!currentDeck.currentCard) {
       document.removeEventListener('keydown', handleKeydown);
     }
     return () => document.removeEventListener('keydown', handleKeydown);
-  }, [currentDeck]);
+  });
   return (
     <div className="cardContainer">
       {currentDeck.cardsToReview.length ? (
@@ -196,12 +201,13 @@ const CardContainer = props => {
         <div className="miniCardStack"> </div>
       )}
 
-      <div className="centerCard">
+      <div className="centerCard" onClick={handleClick}>
         {currentDeck.currentCard ? (
           <Card
             currentBird={currentDeck.currentCard}
             cardFace={cardFace}
             toggleCardFace={toggleCardFace}
+            mode={mode}
           />
         ) : (
           <div className="emptyCurrentCard">Good job!</div>
