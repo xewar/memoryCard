@@ -257,23 +257,47 @@ input:focus {
   color: var(--lightPink);
   font-size: 1.1em;
 }
-/* _______________________KEYBOARD SHORTCUTS STYLING  __________________________ */
+/* _______________________KEYBOARD + SCOREBOARD SHORTCUTS STYLING  __________________________ */
 
+.scoreboard {
+  left: 830px;
+  width: 80px;
+  background-color: var(--mediumPink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.totals {
+  height: 80px;
+}
+.hiddenTotals {
+  height: 10px;
+}
+.score {
+  font-size: 2em;
+  font-weight: 900;
+  color: #a9b5c6;
+  color: var(--darkPink);
+}
+.userScore {
+  color: white;
+}
 .keyboardShortcuts {
+  left: 100px;
+  background-color: var(--lightPink);
+}
+.keyboardShortcuts,
+.scoreboard {
   position: absolute;
   bottom: 20px;
-  left: 100px;
-  width: 170px;
   padding: 12px;
-  /* border: 4px solid var(--lightPink); */
   border-radius: 10px;
-  background-color: var(--lightPink);
   margin: 0;
   text-align: center;
 }
 .grow {
   content: '';
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 .grow:hover {
   -webkit-transform: scale(1.3);
@@ -282,10 +306,12 @@ input:focus {
   cursor: pointer;
   background-color: var(--mediumPink);
 }
-
 .keyboardShortcutsHeader {
-  font-weight: 600;
   color: var(--darkPink);
+}
+.keyboardShortcutsHeader,
+.scoreboardHeader {
+  font-weight: 600;
   font-size: 1.25em;
   margin-bottom: 5px;
   -webkit-transition: none !important;

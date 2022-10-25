@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './css/App.css';
 import CardContainer from './CardContainer';
 import Instructions from './Instructions';
@@ -13,6 +13,8 @@ function App() {
     herons: false,
     waterfowl: false,
   });
+  const [score, setScore] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
   const toggleDifficulty = event => {
     let newDifficulty = event.target.parentElement.id;
     setDifficulty(prevState => newDifficulty);
@@ -23,6 +25,11 @@ function App() {
     setMode(prevState => newMode);
     event.target.blur();
   };
+  useEffect(() => {
+    if (mode === 'practicing') {
+      setScore(0);
+    }
+  }, [mode]);
   function selectBirds(event) {
     let birdType = event.target.parentElement.id;
     let numFalse = Object.values(selectedBirds).filter(
@@ -79,6 +86,10 @@ function App() {
           selectedBirds={selectedBirds}
           difficulty={difficulty}
           mode={mode}
+          score={score}
+          setScore={setScore}
+          totalScore={totalScore}
+          setTotalScore={setTotalScore}
         />
       </div>
     </div>

@@ -4,16 +4,27 @@ import birdData from './birdData.js';
 import uniqid from 'uniqid';
 
 const CardContainer = props => {
-  const { selectedBirds, difficulty, mode } = props;
+  const {
+    selectedBirds,
+    difficulty,
+    mode,
+    score,
+    totalScore,
+    setTotalScore,
+    setScore,
+  } = props;
   const [cardFace, setCardFace] = useState('front');
-
+  const [guess, setGuess] = useState('');
   const [currentDeck, setCurrentDeck] = useState({
     cardsToReview: [],
     currentCard: [],
     completedCards: [],
+    totalScore: 0,
   });
   const birds = birdData.birds;
   const [showShortcuts, setShowShortcuts] = useState(false);
+
+  const [showScore, setShowScore] = useState(true);
 
   //make a new deck of the selected birds
   const createDeck = () => {
@@ -80,6 +91,7 @@ const CardContainer = props => {
         cardsToReview: shuffledDeck,
         currentCard: shuffledDeck.shift(),
         completedCards: [],
+        totalScore: shuffledDeck.length + 1,
       };
     });
   }, [difficulty, mode, selectedBirds]);
@@ -162,7 +174,22 @@ const CardContainer = props => {
     });
   }
 
+  function checkGuess() {}
+
+  const updateScores = () => {
+    if (mode === 'learning') {
+      setScore(prevScore => currentDeck.cardsToReview.length);
+      setTotalScore(prevScore => currentDeck.completedCards.length);
+    }
+    if (mode === 'practicing') {
+      setTotalScore(prevScore => currentDeck.totalScore);
+    }
+  };
   function handleKeydown(e) {
+    if (e.key === 'Enter' && mode === 'practicing') {
+      //user enters guess of bird name
+      checkGuess();
+    }
     if (e.code === 'Space' && mode === 'learning') {
       toggleCardFace();
     }
@@ -185,7 +212,9 @@ const CardContainer = props => {
       toggleCardFace();
     }
   };
-
+  useEffect(() => {
+    updateScores();
+  }, [currentDeck]);
   useEffect(() => {
     document.addEventListener('keydown', handleKeydown);
     if (!currentDeck.currentCard) {
@@ -208,6 +237,8 @@ const CardContainer = props => {
             cardFace={cardFace}
             toggleCardFace={toggleCardFace}
             mode={mode}
+            guess={guess}
+            setGuess={setGuess}
           />
         ) : (
           <div className="emptyCurrentCard">Good job!</div>
@@ -244,6 +275,18 @@ const CardContainer = props => {
               <div className="shortcutKey">3</div>
               <div className="shortcutName">easy</div>
             </div>
+          </div>
+        )}
+      </div>
+      <div
+        className="scoreboard grow"
+        onClick={() => setShowScore(prevState => !prevState)}
+      >
+        {!showScore && <div className="hiddenTotals"></div>}
+        {showScore && (
+          <div className="totals">
+            <div className="score userScore">{score}</div>
+            <div className="score totalscore">{totalScore}</div>
           </div>
         )}
       </div>

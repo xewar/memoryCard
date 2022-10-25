@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import birdData from './birdData.js';
 
 const Card = props => {
-  const { currentBird, cardFace, toggleCardFace, mode } = props;
+  const { currentBird, cardFace, toggleCardFace, mode, guess, setGuess } =
+    props;
   const birds = birdData.birds;
-
+  const handleChange = event => {
+    setGuess(prevGuess => event.target.value);
+  };
   const displayCurrentBird = birdId => {
     if (cardFace === 'back') {
       return (
@@ -25,7 +28,9 @@ const Card = props => {
             className="birdPhoto"
             src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}
           ></img>
-          {mode === 'practicing' && <input className="guess"></input>}
+          {mode === 'practicing' && (
+            <input className="guess" onChange={handleChange}></input>
+          )}
         </div>
       );
     }
