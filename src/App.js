@@ -29,7 +29,7 @@ function App() {
     if (mode === 'practicing') {
       setScore(0);
     }
-  }, [mode]);
+  }, [mode, difficulty, selectedBirds]);
   function selectBirds(event) {
     let birdType = event.target.parentElement.id;
     let numFalse = Object.values(selectedBirds).filter(

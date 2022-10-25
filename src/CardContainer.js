@@ -23,8 +23,8 @@ const CardContainer = props => {
   });
   const birds = birdData.birds;
   const [showShortcuts, setShowShortcuts] = useState(false);
-
   const [showScore, setShowScore] = useState(true);
+  const [answerRevealed, setAnsweredRevealed] = useState(false);
 
   //make a new deck of the selected birds
   const createDeck = () => {
@@ -152,11 +152,12 @@ const CardContainer = props => {
   };
 
   function moveBackToDeck(e, currentDeck) {
+    console.log('this function is running');
     let deckLength = currentDeck.cardsToReview.length;
     let midpoint = Math.round(deckLength / 2);
     let newCardsToReview = currentDeck.cardsToReview;
     let newPlace;
-    if (e.key === '1') {
+    if (e.key === '1' || e.key === 'Enter') {
       //'hard' shifts card towards the back of deck
       newPlace = Math.floor(Math.random() * (deckLength - midpoint)) + midpoint;
     }
@@ -174,7 +175,22 @@ const CardContainer = props => {
     });
   }
 
-  function checkGuess() {}
+  function checkGuess() {
+    let checkingGuess = guess.replace(/\s/g, '').toLowerCase();
+    let checkingBirdName = currentDeck.currentCard.species
+      .replace(/\s/g, '')
+      .toLowerCase();
+    console.log(checkingBirdName, checkingGuess, 'here');
+    if (checkingGuess === checkingBirdName) {
+      //guess is correct
+      setScore(prevScore => prevScore + 1); //update score
+      moveToCompletedPile();
+      setGuess('');
+    } else {
+      setGuess(`This is a ${currentDeck.currentCard.species}`);
+      setAnsweredRevealed(true);
+    }
+  }
 
   const updateScores = () => {
     if (mode === 'learning') {
@@ -186,9 +202,15 @@ const CardContainer = props => {
     }
   };
   function handleKeydown(e) {
-    if (e.key === 'Enter' && mode === 'practicing') {
+    if (e.key === 'Enter' && mode === 'practicing' && !answerRevealed) {
       //user enters guess of bird name
       checkGuess();
+    }
+    if (e.key === 'Enter' && mode === 'practicing' && answerRevealed) {
+      moveToCompletedPile();
+      setCardFace('front');
+      setGuess('');
+      setAnsweredRevealed(false);
     }
     if (e.code === 'Space' && mode === 'learning') {
       toggleCardFace();

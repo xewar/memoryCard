@@ -29,7 +29,12 @@ const Card = props => {
             src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}
           ></img>
           {mode === 'practicing' && (
-            <input className="guess" onChange={handleChange}></input>
+            <input
+              className="guess"
+              onChange={handleChange}
+              placeholder="Enter your guess..."
+              value={guess}
+            ></input>
           )}
         </div>
       );
