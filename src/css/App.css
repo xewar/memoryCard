@@ -192,6 +192,13 @@ p {
 input:focus {
   outline: none;
 }
+.centerCard {
+  opacity: 0.999;
+}
+.hide {
+  display: none;
+}
+
 .centerCardFront {
   display: flex;
   flex-direction: column;
