@@ -1,5 +1,6 @@
 {
   "name": "memory",
+  "homepage": "https://myusername.github.io/memoryCards",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
