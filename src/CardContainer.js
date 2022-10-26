@@ -1,14 +1,13 @@
 import { useCardsLogic } from './useCardsLogic';
 import Card from './Card';
+import React, { useState, useEffect } from 'react';
 
 const CardContainer = props => {
-  const { mode, score, totalScore } = props;
+  const { mode, score, totalScore, setScore, setTotalScore } = props;
+  const [cardFace, setCardFace] = useState('front');
   const {
     currentDeck,
     displayCardsToReview,
-    handleClick,
-    cardFace,
-    toggleCardFace,
     guess,
     setGuess,
     displayCompletedCards,
@@ -16,7 +15,72 @@ const CardContainer = props => {
     setShowShortcuts,
     showScore,
     setShowScore,
+    answerRevealed,
+    checkGuess,
+    moveToCompletedPile,
+    setAnsweredRevealed,
+    moveBackToDeck,
   } = useCardsLogic(props);
+  const toggleCardFace = () => {
+    cardFace === 'front' ? setCardFace('back') : setCardFace('front');
+  };
+
+  const updateScores = () => {
+    if (mode === 'learning') {
+      setScore(prevScore => currentDeck.cardsToReview.length);
+      setTotalScore(prevScore => currentDeck.completedCards.length);
+    }
+    if (mode === 'practicing') {
+      setTotalScore(prevScore => currentDeck.totalScore);
+    }
+  };
+
+  //keybindings - pressing 1 or 2 moves card back into cards to review, 3 moves it to completed, and space or click turns it over
+  function handleKeydown(e) {
+    if (e.key === 'Enter' && mode === 'practicing' && !answerRevealed) {
+      //user enters guess of bird name
+      checkGuess();
+    }
+    if (e.key === 'Enter' && mode === 'practicing' && answerRevealed) {
+      moveToCompletedPile();
+      setCardFace('front');
+      setGuess('');
+      setAnsweredRevealed(false);
+    }
+    if (e.code === 'Space' && mode === 'learning') {
+      toggleCardFace();
+    }
+    if (e.key === '3') {
+      if (e.defaultPrevented) return; // Exits here if event has been handled
+      e.preventDefault();
+      moveToCompletedPile(e);
+      setCardFace('front');
+    }
+
+    if (e.key === '1' || e.key === '2') {
+      if (e.defaultPrevented) return; // Exits here if event has been handled
+      e.preventDefault();
+      moveBackToDeck(e, currentDeck);
+      setCardFace('front');
+    }
+  }
+
+  const handleClick = () => {
+    if (mode === 'learning') {
+      toggleCardFace();
+    }
+  };
+  useEffect(() => {
+    updateScores();
+  }, [currentDeck]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeydown);
+    if (!currentDeck.currentCard) {
+      document.removeEventListener('keydown', handleKeydown);
+    }
+    return () => document.removeEventListener('keydown', handleKeydown);
+  });
 
   return (
     <div className="cardContainer" onDragOver={e => this.onDragOver(e)}>
