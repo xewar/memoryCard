@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-import birdData from './birdData.js';
-
 const Card = props => {
-  const { currentBird, cardFace, toggleCardFace, mode, guess, setGuess } =
-    props;
-  const birds = birdData.birds;
+  const { currentBird, cardFace, mode, guess, setGuess } = props;
   const handleChange = event => {
     setGuess(prevGuess => event.target.value);
   };

@@ -1,38 +1,25 @@
 import { useCardsLogic } from './useCardsLogic';
+import { useGameScoring } from './useGameScoring';
+import { useEventHandlers } from './useEventHandlers';
 import Card from './Card';
 import React, { useState, useEffect } from 'react';
 
 const CardContainer = props => {
-  const { mode, score, totalScore, setScore, setTotalScore } = props;
-  const [cardFace, setCardFace] = useState('front');
+  const { guess, setGuess, checkGuess, answerRevealed, setAnswerRevealed } =
+    useGameScoring(props);
   const {
     currentDeck,
     displayCardsToReview,
-    guess,
-    setGuess,
     displayCompletedCards,
-    showShortcuts,
-    setShowShortcuts,
-    showScore,
-    setShowScore,
-    answerRevealed,
-    checkGuess,
     moveToCompletedPile,
-    setAnsweredRevealed,
     moveBackToDeck,
   } = useCardsLogic(props);
+  const { mode, score, totalScore } = props;
+  const [showShortcuts, setShowShortcuts] = useState(false);
+  const [showScore, setShowScore] = useState(true);
+  const [cardFace, setCardFace] = useState('front');
   const toggleCardFace = () => {
     cardFace === 'front' ? setCardFace('back') : setCardFace('front');
-  };
-
-  const updateScores = () => {
-    if (mode === 'learning') {
-      setScore(prevScore => currentDeck.cardsToReview.length);
-      setTotalScore(prevScore => currentDeck.completedCards.length);
-    }
-    if (mode === 'practicing') {
-      setTotalScore(prevScore => currentDeck.totalScore);
-    }
   };
 
   //keybindings - pressing 1 or 2 moves card back into cards to review, 3 moves it to completed, and space or click turns it over
@@ -45,7 +32,7 @@ const CardContainer = props => {
       moveToCompletedPile();
       setCardFace('front');
       setGuess('');
-      setAnsweredRevealed(false);
+      setAnswerRevealed(false);
     }
     if (e.code === 'Space' && mode === 'learning') {
       toggleCardFace();
@@ -70,9 +57,6 @@ const CardContainer = props => {
       toggleCardFace();
     }
   };
-  useEffect(() => {
-    updateScores();
-  }, [currentDeck]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeydown);
@@ -81,7 +65,6 @@ const CardContainer = props => {
     }
     return () => document.removeEventListener('keydown', handleKeydown);
   });
-
   return (
     <div className="cardContainer" onDragOver={e => this.onDragOver(e)}>
       {currentDeck.cardsToReview.length ? (

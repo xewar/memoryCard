@@ -3,8 +3,7 @@ import uniqid from 'uniqid';
 import birdData from './birdData.js';
 
 export function useCardsLogic(props) {
-  const { selectedBirds, difficulty, mode, setScore } = props;
-  const [guess, setGuess] = useState('');
+  const { selectedBirds, difficulty, mode } = props;
   const [currentDeck, setCurrentDeck] = useState({
     cardsToReview: [],
     currentCard: [],
@@ -12,9 +11,6 @@ export function useCardsLogic(props) {
     totalScore: 0,
   });
   const birds = birdData.birds;
-  const [showShortcuts, setShowShortcuts] = useState(false);
-  const [showScore, setShowScore] = useState(true);
-  const [answerRevealed, setAnsweredRevealed] = useState(false);
 
   //a new deck is created each time the user changes the game settings
   useEffect(() => {
@@ -49,6 +45,7 @@ export function useCardsLogic(props) {
   };
   //moves card to pile on the right
   function moveToCompletedPile() {
+    console.log('this is getting called', currentDeck);
     setCurrentDeck(prevDeck => {
       let tempCompletedCards = prevDeck.completedCards;
       tempCompletedCards.unshift(prevDeck.currentCard);
@@ -108,6 +105,7 @@ export function useCardsLogic(props) {
     };
     return <div className="leftStack">{displayStack()}</div>;
   }
+  //display cards on the right
   function displayCompletedCards() {
     let currentBird = currentDeck.completedCards[0];
     return (
@@ -122,39 +120,13 @@ export function useCardsLogic(props) {
       </div>
     );
   }
-  //checks whether user input is correct in practice mode
-  function checkGuess() {
-    let checkingGuess = guess.replace(/\s/g, '').toLowerCase();
-    let checkingBirdName = currentDeck.currentCard.species
-      .replace(/\s/g, '')
-      .toLowerCase();
-    if (checkingGuess === checkingBirdName) {
-      //guess is correct
-      setScore(prevScore => prevScore + 1); //update score
-      moveToCompletedPile();
-      setGuess('');
-    } else {
-      setGuess(`This is a ${currentDeck.currentCard.species}`);
-      setAnsweredRevealed(true);
-    }
-  }
-  function onDragOver(ev) {
-    ev.preventDefault();
-  }
+
   return {
     currentDeck,
     displayCardsToReview,
-    guess,
-    setGuess,
     displayCompletedCards,
-    showShortcuts,
-    setShowShortcuts,
-    showScore,
-    setShowScore,
-    checkGuess,
     moveToCompletedPile,
     moveBackToDeck,
-    setAnsweredRevealed,
   };
 }
 
