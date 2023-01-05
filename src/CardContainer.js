@@ -1,6 +1,5 @@
 import { useCardsLogic } from './useCardsLogic';
 import { useGameScoring } from './useGameScoring';
-import { useEventHandlers } from './useEventHandlers';
 import Card from './Card';
 import React, { useState, useEffect } from 'react';
 
