@@ -25,6 +25,10 @@ const CardContainer = props => {
   function handleKeydown(e) {
     if (e.key === 'Enter' && mode === 'practicing' && !answerRevealed) {
       //user enters guess of bird name
+      console.log(
+        'in cardContainer, checking guess',
+        currentDeck.currentCard.species
+      );
       checkGuess();
     }
     if (e.key === 'Enter' && mode === 'practicing' && answerRevealed) {

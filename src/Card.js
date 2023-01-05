@@ -22,6 +22,7 @@ const Card = props => {
           <img
             className="birdPhoto"
             src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}
+            alt={`${currentBird.tempFileExt}`}
           ></img>
           {mode === 'practicing' && (
             <input

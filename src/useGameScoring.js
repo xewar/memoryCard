@@ -16,6 +16,7 @@ export function useGameScoring(props) {
     let checkingBirdName = currentDeck.currentCard.species
       .replace(/\s/g, '')
       .toLowerCase();
+    console.log(checkingBirdName, 'actual bird');
     if (checkingGuess === checkingBirdName) {
       //guess is correct
       setScore(prevScore => prevScore + 1); //update score
