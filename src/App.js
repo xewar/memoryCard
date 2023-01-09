@@ -41,6 +41,7 @@ function App() {
       bird => bird === false
     ).length;
     let selectedBirdSize = Object.keys(selectedBirds).length;
+    //if user selects all birds, change the selectedBirds in the game settings to that
     if (birdType === 'allBirds') {
       setSelectedBirds(prevState => {
         return {
@@ -51,7 +52,7 @@ function App() {
         };
       });
     }
-    //reverts to allBirds if the user deselects everything
+    //if they deselect everything, also play with all birds
     else if (selectedBirds[birdType] && numFalse === selectedBirdSize - 1) {
       setSelectedBirds(prevState => {
         return {
@@ -60,7 +61,8 @@ function App() {
           [birdType]: !prevState[birdType],
         };
       });
-    } else {
+    } //otherwise, update the bird type as the user selects/deselects those buttons
+    else {
       setSelectedBirds(prevState => {
         return {
           ...prevState,
