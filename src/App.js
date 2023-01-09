@@ -5,6 +5,7 @@ import Instructions from './Instructions';
 import GameSettings from './GameSettings';
 
 function App() {
+  //the App function updates the game with the chosen game settings and returns the components that make up the game
   const [difficulty, setDifficulty] = useState('easy');
   const [mode, setMode] = useState('learning');
   const [selectedBirds, setSelectedBirds] = useState({
@@ -15,21 +16,25 @@ function App() {
   });
   const [score, setScore] = useState(0);
   const [totalScore, setTotalScore] = useState(0);
+  //changing the difficulty level with sidebar buttons
   const toggleDifficulty = event => {
     let newDifficulty = event.target.parentElement.id;
     setDifficulty(prevState => newDifficulty);
+    //deselecting the button after the change
     event.target.blur();
   };
+  //changing the mode with the sidebar
   const toggleMode = event => {
     let newMode = event.target.parentElement.id;
     setMode(prevState => newMode);
     event.target.blur();
   };
+  //score goes to zero when switching to practice mode
   useEffect(() => {
-    if (mode === 'practicing') {
-      setScore(0);
-    }
+    setScore(0);
   }, [mode, difficulty, selectedBirds]);
+
+  //using the sidebar buttons to select which birds you'd like to work on memorizing this round
   function selectBirds(event) {
     let birdType = event.target.parentElement.id;
     let numFalse = Object.values(selectedBirds).filter(
