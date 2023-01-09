@@ -1,3 +1,5 @@
+//data with characteristics of each bird
+
 const birdData = {
   birds: [
     {
