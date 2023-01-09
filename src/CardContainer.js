@@ -21,6 +21,12 @@ const CardContainer = props => {
     cardFace === 'front' ? setCardFace('back') : setCardFace('front');
   };
 
+  useEffect(() => {
+    if (mode === 'practicing') {
+      setCardFace('front');
+    }
+  }, [mode]);
+
   //keybindings - pressing 1 or 2 moves card back into cards to review, 3 moves it to completed, and space or click turns it over
   function handleKeydown(e) {
     if (e.key === 'Enter' && mode === 'practicing' && !answerRevealed) {
