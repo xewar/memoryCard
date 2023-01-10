@@ -27,7 +27,8 @@ export function useCardsLogic(props) {
     });
   }, [difficulty, mode, selectedBirds]);
 
-  //make a new deck of the selected birds
+  /* make a new deck of the selected birds each time the user selects a different group
+   of birds to play with */
   const createDeck = () => {
     let deck = [];
     if (selectedBirds.allBirds) {
@@ -131,9 +132,10 @@ export function useCardsLogic(props) {
 }
 
 // HELPER FUNCTIONS
-//This function randomizes one, two, or three pictures of the bird for each difficulty level -
-//each bird has three photos, and each time the user changes the difficulty, they'll see a different set
-//of photos. For example, with easy they'll see one photo of each bird, but the exact selection of photos will change each time/be randomized
+/* This function randomizes one, two, or three pictures of the bird for each difficulty level -
+each bird has three photos, and each time the user changes the difficulty, they'll see a different set
+of photos. For example, with easy they'll see one photo of each bird, but the exact selection of photos will change each time/be randomized 
+With medium they'll see two random photos of each bird each round */
 function addCardsByDifficulty(deck, difficulty) {
   let chooseRandomNumbers = () => {
     let num;

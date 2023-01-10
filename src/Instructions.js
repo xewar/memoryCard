@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReactComponent as PlusSign } from './plus.svg';
 
+//the instructions sidebar
 const Instructions = () => {
   const [showInstructions, setShowInstructions] = React.useState(false);
   const [showAbout, setShowAbout] = React.useState(false);

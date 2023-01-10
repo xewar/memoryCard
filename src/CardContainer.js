@@ -1,11 +1,15 @@
 import { useCardsLogic } from './useCardsLogic';
-import { useGameScoring } from './useGameScoring';
+// import { useGameScoring } from './useGameScoring';
 import Card from './Card';
 import React, { useState, useEffect } from 'react';
 
 const CardContainer = props => {
-  const { guess, setGuess, checkGuess, answerRevealed, setAnswerRevealed } =
-    useGameScoring(props);
+  // const { guess, setGuess, checkGuess, answerRevealed, setAnswerRevealed } =
+  //   useGameScoring(props);
+  const { score, setScore, mode, setTotalScore, totalScore } = props;
+
+  const [answerRevealed, setAnswerRevealed] = useState(false);
+  const [guess, setGuess] = useState('');
   const {
     currentDeck,
     displayCardsToReview,
@@ -13,35 +17,67 @@ const CardContainer = props => {
     moveToCompletedPile,
     moveBackToDeck,
   } = useCardsLogic(props);
-  const { mode, score, totalScore } = props;
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [showScore, setShowScore] = useState(true);
   const [cardFace, setCardFace] = useState('front');
+
+  useEffect(() => {
+    updateScores(currentDeck);
+  });
+
+  function checkGuess() {
+    let checkingGuess = guess.replace(/\s/g, '').toLowerCase();
+    let checkingBirdName = currentDeck.currentCard.species
+      .replace(/\s/g, '')
+      .toLowerCase();
+    if (checkingGuess === checkingBirdName) {
+      //guess is correct
+      setScore(prevScore => prevScore + 1); //update score
+      moveToCompletedPile();
+      setGuess('');
+      setAnswerRevealed(false);
+    } else {
+      setGuess(`This is a ${currentDeck.currentCard.species}`);
+      setAnswerRevealed(true);
+    }
+  }
+  const updateScores = () => {
+    if (mode === 'learning') {
+      setScore(prevScore => currentDeck.cardsToReview.length);
+      setTotalScore(prevScore => currentDeck.completedCards.length);
+    }
+    if (mode === 'practicing') {
+      setTotalScore(prevScore => currentDeck.totalScore);
+    }
+  };
+  function onDragOver(ev) {
+    ev.preventDefault();
+  }
+
+  //updating card face
   const toggleCardFace = () => {
     cardFace === 'front' ? setCardFace('back') : setCardFace('front');
   };
-
+  //card face also updates when you switch from learning to practicing mode
   useEffect(() => {
     if (mode === 'practicing') {
       setCardFace('front');
     }
   }, [mode]);
-
-  //keybindings - pressing 1 or 2 moves card back into cards to review, 3 moves it to completed, and space or click turns it over
+  /* keybindings - pressing 1 or 2 moves card back into cards to review
+  3 moves it to completed, and space or click turns it over*/
   function handleKeydown(e) {
-    if (e.key === 'Enter' && mode === 'practicing' && !answerRevealed) {
-      //user enters guess of bird name
-      console.log(
-        'in cardContainer, checking guess',
-        currentDeck.currentCard.species
-      );
-      checkGuess();
-    }
-    if (e.key === 'Enter' && mode === 'practicing' && answerRevealed) {
-      moveToCompletedPile();
-      setCardFace('front');
-      setGuess('');
-      setAnswerRevealed(false);
+    if (mode === 'practicing') {
+      if (e.key === 'Enter') {
+        if (!answerRevealed) {
+          checkGuess();
+        }
+        if (answerRevealed) {
+          moveToCompletedPile(e);
+          setGuess('');
+          setAnswerRevealed(false);
+        }
+      }
     }
     if (e.code === 'Space' && mode === 'learning') {
       toggleCardFace();
@@ -50,7 +86,10 @@ const CardContainer = props => {
       if (e.defaultPrevented) return; // Exits here if event has been handled
       e.preventDefault();
       moveToCompletedPile(e);
-      setCardFace('front');
+      // setCardFace('front');
+      checkGuess();
+      setGuess('');
+      setAnswerRevealed(false);
     }
 
     if (e.key === '1' || e.key === '2') {
@@ -58,6 +97,8 @@ const CardContainer = props => {
       e.preventDefault();
       moveBackToDeck(e, currentDeck);
       setCardFace('front');
+      setGuess('');
+      setAnswerRevealed(false);
     }
   }
 
@@ -75,7 +116,7 @@ const CardContainer = props => {
     return () => document.removeEventListener('keydown', handleKeydown);
   });
   return (
-    <div className="cardContainer" onDragOver={e => this.onDragOver(e)}>
+    <div className="cardContainer">
       {currentDeck.cardsToReview.length ? (
         displayCardsToReview()
       ) : (
