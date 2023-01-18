@@ -77,7 +77,9 @@ if you're in practicing mode, the score shows how many birds you've correctly id
         }
       }
       if (e.code === 'Space') {
-        e.preventDefault();
+        if (e.target.className !== 'guess') {
+          e.preventDefault();
+        }
       }
     }
     if (e.code === 'Space' && mode === 'learning') {
