@@ -33,10 +33,30 @@ const Instructions = () => {
       </div>
       {showInstructions && (
         <div className="instructionsText">
-          Choose the categories of birds you'd like to practice identifying. In
-          the medium difficulty level, you'll see more than one photo of each
-          species - for example of the male and female for each species. In
-          hard, you'll be playing with three photos of each species.
+          <div className="instructionsPara">
+            In this game, use flashcards to learn to identify common birds in
+            NYC. The game is inspired by spaced-repetition software (SRS) like{' '}
+            <a
+              href="https://apps.ankiweb.net/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Anki
+            </a>{' '}
+            , and relies on similar keyboard shortcuts.
+          </div>
+          <div className="instructionsPara">
+            To start, choose the categories of birds you'd like to practice
+            identifying and your difficulty level. In the medium difficulty
+            level, you'll see more than one photo of each species - for example
+            of the male and female for each species. In hard, you'll be playing
+            with three photos of each species.
+          </div>
+          <div className="instructionsPara">
+            Press 1 or 2 to send cards back to the deck if you want to keep
+            practicing with them, or press 3 for the birds that you can
+            comfortably identify.
+          </div>
         </div>
       )}
       <div className="about">
