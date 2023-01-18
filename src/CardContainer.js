@@ -75,8 +75,12 @@ if you're in practicing mode, the score shows how many birds you've correctly id
           setAnswerRevealed(false);
         }
       }
+      if (e.code === 'Space') {
+        e.preventDefault();
+      }
     }
     if (e.code === 'Space' && mode === 'learning') {
+      e.preventDefault();
       toggleCardFace();
     }
     if (e.key === '3') {
