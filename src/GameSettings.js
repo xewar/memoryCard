@@ -32,7 +32,7 @@ const GameSettings = props => {
         </div>
         <div className="select" id="herons">
           <button
-            className={'radioButton ' + (selectedBirds.herons & 'selected')}
+            className={'radioButton ' + (selectedBirds.herons && 'selected')}
             onClick={selectBirds}
           ></button>
           Bitterns, Herons, and Ibises
