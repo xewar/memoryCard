@@ -35,7 +35,7 @@ const Instructions = () => {
         <div className="instructionsText">
           <div className="instructionsPara">
             In this game, use flashcards to learn to identify common birds in
-            NYC. The game is inspired by spaced-repetition software (SRS) like{' '}
+            NYC. The game is inspired by spaced-repetition software like{' '}
             <a
               href="https://apps.ankiweb.net/"
               target="_blank"
@@ -53,9 +53,9 @@ const Instructions = () => {
             with three photos of each species.
           </div>
           <div className="instructionsPara">
-            Press 1 or 2 to send cards back to the deck if you want to keep
-            practicing with them, or press 3 for the birds that you can
-            comfortably identify.
+            Press space to flip the cards. Press 1 or 2 to send cards back to
+            the deck if you want to keep practicing with them, and press 3 for
+            the birds that you can comfortably identify.
           </div>
         </div>
       )}
