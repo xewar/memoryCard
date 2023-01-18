@@ -46,7 +46,6 @@ export function useCardsLogic(props) {
   };
   //moves card to pile on the right
   function moveToCompletedPile() {
-    console.log('this is getting called', currentDeck);
     setCurrentDeck(prevDeck => {
       let tempCompletedCards = prevDeck.completedCards;
       tempCompletedCards.unshift(prevDeck.currentCard);

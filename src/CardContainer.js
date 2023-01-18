@@ -18,7 +18,7 @@ const CardContainer = props => {
   const [showScore, setShowScore] = useState(true);
   const [cardFace, setCardFace] = useState('front');
 
-  useEffect(() => {
+  useEffect(cardFace => {
     updateScores(currentDeck);
   });
   //after a user inputs their guess, checks it against the actual bird name
@@ -61,6 +61,7 @@ if you're in practicing mode, the score shows how many birds you've correctly id
       setCardFace('front');
     }
   }, [mode]);
+
   /* keybindings - pressing 1 or 2 moves card back into cards to review
   3 moves it to completed, and space or click turns it over*/
   function handleKeydown(e) {
@@ -87,7 +88,7 @@ if you're in practicing mode, the score shows how many birds you've correctly id
       if (e.defaultPrevented) return; // Exits here if event has been handled
       e.preventDefault();
       moveToCompletedPile(e);
-      // setCardFace('front');
+      setCardFace('front');
       checkGuess();
       setGuess('');
       setAnswerRevealed(false);
