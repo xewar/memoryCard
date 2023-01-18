@@ -9,7 +9,7 @@ const GameSettings = props => {
     toggleDifficulty,
     toggleMode,
   } = props;
-
+  // returns the settings divs on the left side of the page (for difficulty, type of bird, etc.)
   return (
     <div className="settings">
       <div className="settingsGroup">
@@ -32,7 +32,7 @@ const GameSettings = props => {
         </div>
         <div className="select" id="herons">
           <button
-            className={'radioButton ' + (selectedBirds.herons && 'selected')}
+            className={'radioButton ' + (selectedBirds.herons & 'selected')}
             onClick={selectBirds}
           ></button>
           Bitterns, Herons, and Ibises
