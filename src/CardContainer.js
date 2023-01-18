@@ -1,11 +1,8 @@
 import { useCardsLogic } from './useCardsLogic';
-// import { useGameScoring } from './useGameScoring';
 import Card from './Card';
 import React, { useState, useEffect } from 'react';
 
 const CardContainer = props => {
-  // const { guess, setGuess, checkGuess, answerRevealed, setAnswerRevealed } =
-  //   useGameScoring(props);
   const { score, setScore, mode, setTotalScore, totalScore } = props;
 
   const [answerRevealed, setAnswerRevealed] = useState(false);
@@ -24,10 +21,10 @@ const CardContainer = props => {
   useEffect(() => {
     updateScores(currentDeck);
   });
-
+  //after a user inputs their guess, checks it against the actual bird name
   function checkGuess() {
     let checkingGuess = guess.replace(/\s/g, '').toLowerCase();
-    let checkingBirdName = currentDeck.currentCard.species
+    let checkingBirdName = currentDeck.currentCard.species //actual name
       .replace(/\s/g, '')
       .toLowerCase();
     if (checkingGuess === checkingBirdName) {
@@ -41,6 +38,9 @@ const CardContainer = props => {
       setAnswerRevealed(true);
     }
   }
+  /* if you're in learning mode, the score shows how many cards you have left
+if you're in practicing mode, the score shows how many birds you've correctly identified
+*/
   const updateScores = () => {
     if (mode === 'learning') {
       setScore(prevScore => currentDeck.cardsToReview.length);
@@ -50,15 +50,12 @@ const CardContainer = props => {
       setTotalScore(prevScore => currentDeck.totalScore);
     }
   };
-  function onDragOver(ev) {
-    ev.preventDefault();
-  }
 
   //updating card face
   const toggleCardFace = () => {
     cardFace === 'front' ? setCardFace('back') : setCardFace('front');
   };
-  //card face also updates when you switch from learning to practicing mode
+  //card also reverts to front-facing when you switch from learning to practicing mode
   useEffect(() => {
     if (mode === 'practicing') {
       setCardFace('front');
@@ -101,13 +98,13 @@ const CardContainer = props => {
       setAnswerRevealed(false);
     }
   }
-
+  //only switching from front to back in learning mode
   const handleClick = () => {
     if (mode === 'learning') {
       toggleCardFace();
     }
   };
-
+  //adding keydowns to current card as it changes
   useEffect(() => {
     document.addEventListener('keydown', handleKeydown);
     if (!currentDeck.currentCard) {
@@ -116,13 +113,15 @@ const CardContainer = props => {
     return () => document.removeEventListener('keydown', handleKeydown);
   });
   return (
+    /* on the left side, returns either an image of the deck or an empty deck
+    in the middle display the current card, and on the right display the completed card -
+    the most recently reviewed card that the player is comfortable with */
     <div className="cardContainer">
       {currentDeck.cardsToReview.length ? (
         displayCardsToReview()
       ) : (
         <div className="miniCardStack"> </div>
       )}
-
       <div className="centerCard" onClick={handleClick} draggable id="current">
         {currentDeck.currentCard ? (
           <Card
