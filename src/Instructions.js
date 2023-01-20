@@ -22,12 +22,12 @@ const Instructions = () => {
   return (
     <div className="sidebar">
       <div className="instructions">
-        <div className="sidebarDropdown">
-          <PlusSign
-            className="dropdownButton"
-            id="instructions"
-            onClick={toggleSidebar}
-          />
+        <div
+          className="sidebarDropdown"
+          id="instructions"
+          onClick={toggleSidebar}
+        >
+          <PlusSign className="dropdownButton" />
           <div className="sidebarHeader dropdownHeader">How to Play</div>
         </div>
       </div>
@@ -60,12 +60,8 @@ const Instructions = () => {
         </div>
       )}
       <div className="about">
-        <div className="sidebarDropdown">
-          <PlusSign
-            className="dropdownButton"
-            id="about"
-            onClick={toggleSidebar}
-          />
+        <div className="sidebarDropdown" id="about" onClick={toggleSidebar}>
+          <PlusSign className="dropdownButton" />
           <div className="sidebarHeader dropdownHeader">About</div>
         </div>
       </div>
