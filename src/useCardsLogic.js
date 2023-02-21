@@ -153,7 +153,7 @@ function addCardsByDifficulty(deck, difficulty) {
     }
     return [randArr, num];
   };
-  //the deck is created below, with a random selection of photos/cards appearing for each bird given the difficult level.
+  //the deck is created below, with a random selection of photos appearing for each bird given the difficulty level.
   let difficultyAdjustedDeck = [];
   for (let card of deck) {
     let [randArr, num] = chooseRandomNumbers();
