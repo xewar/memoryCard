@@ -131,18 +131,19 @@ export function useCardsLogic(props) {
 }
 
 // HELPER FUNCTIONS
-/* This function randomizes one, two, or three pictures of the bird for each difficulty level -
-each bird has three photos, and each time the user changes the difficulty, they'll see a different set
-of photos. For example, with easy they'll see one photo of each bird, but the exact selection of photos will change each time/be randomized 
+/* This function randomizes one, two, or three pictures of the bird for each difficulty level.Each bird has three photos, and each time the user changes the difficulty, they'll see a different set
+of photos. For example, with easy they'll see one photo of each bird, but the exact selection of photos will change each time and be randomized 
 With medium they'll see two random photos of each bird each round */
 function addCardsByDifficulty(deck, difficulty) {
   let chooseRandomNumbers = () => {
     let num;
+    //first, the game difficulty level is translated into a number
     difficulty === 'easy'
       ? (num = 1)
       : difficulty === 'medium'
       ? (num = 2)
       : (num = 3);
+    //then, random numbers are generated - these will be the suffixes of the bird photos
     let randArr = [];
     while (randArr.length < num) {
       let rand = Math.floor(Math.random() * 3 + 1);
@@ -152,10 +153,12 @@ function addCardsByDifficulty(deck, difficulty) {
     }
     return [randArr, num];
   };
+  //the deck is created below, with a random selection of photos/cards appearing for each bird given the difficult level.
   let difficultyAdjustedDeck = [];
   for (let card of deck) {
     let [randArr, num] = chooseRandomNumbers();
     for (let i = 0; i < num; i++) {
+      //creating a deep copy
       let cardClone = structuredClone(card);
       cardClone.tempFileExt = `${cardClone.fileExt}${randArr[i]}`;
       difficultyAdjustedDeck.push(cardClone);
