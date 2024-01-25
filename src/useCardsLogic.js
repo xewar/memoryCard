@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import uniqid from 'uniqid';
-import birdData from './birdData.js';
+import React, { useEffect, useState } from "react";
+import uniqid from "uniqid";
+import birdData from "./birdData.js";
 
 export function useCardsLogic(props) {
   const { selectedBirds, difficulty, mode } = props;
@@ -17,7 +17,7 @@ export function useCardsLogic(props) {
     let newDeck = createDeck();
     let difficultyAdjustedDeck = addCardsByDifficulty(newDeck, difficulty);
     let shuffledDeck = shuffleDeck(difficultyAdjustedDeck);
-    setCurrentDeck(prevDeck => {
+    setCurrentDeck((prevDeck) => {
       return {
         cardsToReview: shuffledDeck,
         currentCard: shuffledDeck.shift(),
@@ -46,7 +46,7 @@ export function useCardsLogic(props) {
   };
   //moves card to pile on the right
   function moveToCompletedPile() {
-    setCurrentDeck(prevDeck => {
+    setCurrentDeck((prevDeck) => {
       let tempCompletedCards = prevDeck.completedCards;
       tempCompletedCards.unshift(prevDeck.currentCard);
       return {
@@ -63,16 +63,16 @@ export function useCardsLogic(props) {
     let midpoint = Math.round(deckLength / 2);
     let newCardsToReview = currentDeck.cardsToReview;
     let newPlace;
-    if (e.key === '1' || e.key === 'Enter') {
+    if (e.key === "1" || e.key === "Enter") {
       //'hard' shifts card towards the back of deck
       newPlace = Math.floor(Math.random() * (deckLength - midpoint)) + midpoint;
     }
-    if (e.key === '2') {
+    if (e.key === "2") {
       //'medium' shifts card towards the front of deck
       newPlace = Math.floor(Math.random() * midpoint);
     }
     newCardsToReview.splice(newPlace, 0, currentDeck.currentCard);
-    setCurrentDeck(prevDeck => {
+    setCurrentDeck((prevDeck) => {
       return {
         ...prevDeck,
         currentCard: prevDeck.cardsToReview.shift(),
@@ -87,7 +87,7 @@ export function useCardsLogic(props) {
       let stack = currentDeck.cardsToReview.length;
       stack > 2 ? (stack = Array(3).fill(0)) : (stack = Array(stack).fill(0));
       let count = 0;
-      return stack.map(item => {
+      return stack.map((item) => {
         return (
           <div
             className="leftCardBack"
@@ -113,6 +113,7 @@ export function useCardsLogic(props) {
         <img
           className="miniBirdPhoto"
           src={`./images/birdsOfCP/${currentBird.tempFileExt}.jpeg`}
+          alt={`A ${currentBird.species}`}
         ></img>
         <div className="smallBirdName">
           {currentDeck.completedCards[0].species}
@@ -138,9 +139,9 @@ function addCardsByDifficulty(deck, difficulty) {
   let chooseRandomNumbers = () => {
     let num;
     //first, the game difficulty level is translated into a number
-    difficulty === 'easy'
+    difficulty === "easy"
       ? (num = 1)
-      : difficulty === 'medium'
+      : difficulty === "medium"
       ? (num = 2)
       : (num = 3);
     //then, random numbers are generated - these will be the suffixes of the bird photos
