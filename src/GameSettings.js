@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const GameSettings = props => {
+const GameSettings = (props) => {
   const {
     mode,
     difficulty,
@@ -16,7 +16,7 @@ const GameSettings = props => {
         <div className="sidebarHeader">Birds</div>
         <div className="select" id="allBirds">
           <button
-            className={'radioButton ' + (selectedBirds.allBirds && 'selected')}
+            className={"radioButton " + (selectedBirds.allBirds && "selected")}
             onClick={selectBirds}
           ></button>
           All Birds
@@ -24,7 +24,7 @@ const GameSettings = props => {
         <div className="select" id="birdsOfPrey">
           <button
             className={
-              'radioButton ' + (selectedBirds.birdsOfPrey && 'selected')
+              "radioButton " + (selectedBirds.birdsOfPrey && "selected")
             }
             onClick={selectBirds}
           ></button>
@@ -32,38 +32,38 @@ const GameSettings = props => {
         </div>
         <div className="select" id="herons">
           <button
-            className={'radioButton ' + (selectedBirds.herons && 'selected')}
+            className={"radioButton " + (selectedBirds.herons && "selected")}
             onClick={selectBirds}
           ></button>
           Bitterns, Herons, and Ibises
         </div>
         <div className="select" id="waterfowl">
           <button
-            className={'radioButton ' + (selectedBirds.waterfowl && 'selected')}
+            className={"radioButton " + (selectedBirds.waterfowl && "selected")}
             onClick={selectBirds}
           ></button>
           Waterfowl
         </div>
-      </div>{' '}
+      </div>{" "}
       <div className="settingsGroup">
         <div className="sidebarHeader">Difficulty</div>
         <div className="select" id="easy">
           <button
-            className={'radioButton ' + (difficulty === 'easy' && 'selected')}
+            className={"radioButton " + (difficulty === "easy" && "selected")}
             onClick={toggleDifficulty}
           ></button>
           Easy
         </div>
         <div className="select" id="medium">
           <button
-            className={'radioButton ' + (difficulty === 'medium' && 'selected')}
+            className={"radioButton " + (difficulty === "medium" && "selected")}
             onClick={toggleDifficulty}
           ></button>
           Medium
         </div>
         <div className="select" id="hard">
           <button
-            className={'radioButton ' + (difficulty === 'hard' && 'selected')}
+            className={"radioButton " + (difficulty === "hard" && "selected")}
             onClick={toggleDifficulty}
           ></button>
           Hard
@@ -73,14 +73,14 @@ const GameSettings = props => {
         <div className="sidebarHeader">Mode</div>
         <div className="select" id="learning">
           <button
-            className={'radioButton ' + (mode === 'learning' && 'selected')}
+            className={"radioButton " + (mode === "learning" && "selected")}
             onClick={toggleMode}
           ></button>
           Learning
         </div>
         <div className="select" id="practicing">
           <button
-            className={'radioButton ' + (mode === 'practicing' && 'selected')}
+            className={"radioButton " + (mode === "practicing" && "selected")}
             onClick={toggleMode}
           ></button>
           Practicing
