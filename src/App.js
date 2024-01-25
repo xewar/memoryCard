@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import './css/App.css';
-import CardContainer from './CardContainer';
-import Instructions from './Instructions';
-import GameSettings from './GameSettings';
+import React, { useEffect, useState } from "react";
+import "./css/App.css";
+import CardContainer from "./CardContainer";
+import Instructions from "./Instructions";
+import GameSettings from "./GameSettings";
 
 function App() {
   //the App function updates the game with the chosen game settings and returns the components that make up the game
-  const [difficulty, setDifficulty] = useState('easy');
-  const [mode, setMode] = useState('learning');
+  const [difficulty, setDifficulty] = useState("easy");
+  const [mode, setMode] = useState("learning");
   const [selectedBirds, setSelectedBirds] = useState({
     allBirds: true,
     birdsOfPrey: false,
@@ -17,16 +17,16 @@ function App() {
   const [score, setScore] = useState(0);
   const [totalScore, setTotalScore] = useState(0);
   //changing the difficulty level with sidebar buttons
-  const toggleDifficulty = event => {
+  const toggleDifficulty = (event) => {
     let newDifficulty = event.target.parentElement.id;
-    setDifficulty(prevState => newDifficulty);
+    setDifficulty((prevState) => newDifficulty);
     //deselecting the button after the change
     event.target.blur();
   };
   //changing the mode with the sidebar
-  const toggleMode = event => {
+  const toggleMode = (event) => {
     let newMode = event.target.parentElement.id;
-    setMode(prevState => newMode);
+    setMode((prevState) => newMode);
     event.target.blur();
   };
   //score goes to zero when switching to practice mode
@@ -38,35 +38,35 @@ function App() {
   function selectBirds(event) {
     let birdType = event.target.parentElement.id;
     let numFalse = Object.values(selectedBirds).filter(
-      bird => bird === false
+      (bird) => bird === false
     ).length;
     let selectedBirdSize = Object.keys(selectedBirds).length;
     //if user selects all birds, change the selectedBirds in the game settings to that
-    if (birdType === 'allBirds') {
-      setSelectedBirds(prevState => {
+    if (birdType === "allBirds") {
+      setSelectedBirds((prevState) => {
         return {
-          ['waterfowl']: false,
-          ['herons']: false,
-          ['birdsOfPrey']: false,
-          ['allBirds']: true,
+          waterfowl: false,
+          herons: false,
+          birdsOfPrey: false,
+          allBirds: true,
         };
       });
     }
     //if they deselect everything, also play with all birds
     else if (selectedBirds[birdType] && numFalse === selectedBirdSize - 1) {
-      setSelectedBirds(prevState => {
+      setSelectedBirds((prevState) => {
         return {
           ...prevState,
-          ['allBirds']: true,
+          allBirds: true,
           [birdType]: !prevState[birdType],
         };
       });
     } //otherwise, update the bird type as the user selects/deselects those buttons
     else {
-      setSelectedBirds(prevState => {
+      setSelectedBirds((prevState) => {
         return {
           ...prevState,
-          ['allBirds']: false,
+          allBirds: false,
           [birdType]: !prevState[birdType],
         };
       });

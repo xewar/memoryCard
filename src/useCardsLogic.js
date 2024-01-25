@@ -14,6 +14,18 @@ export function useCardsLogic(props) {
 
   //a new deck is created each time the user changes the game settings
   useEffect(() => {
+    /* make a new deck of the selected birds each time the user selects a different group
+   of birds to play with */
+    const createDeck = () => {
+      let deck = [];
+      if (selectedBirds.allBirds) {
+        deck = [...birds];
+      } else {
+        deck = birds.filter((bird) => selectedBirds[bird.category]);
+      }
+      return deck;
+    };
+
     let newDeck = createDeck();
     let difficultyAdjustedDeck = addCardsByDifficulty(newDeck, difficulty);
     let shuffledDeck = shuffleDeck(difficultyAdjustedDeck);
@@ -25,25 +37,8 @@ export function useCardsLogic(props) {
         totalScore: shuffledDeck.length + 1,
       };
     });
-  }, [difficulty, mode, selectedBirds]);
+  }, [difficulty, mode, selectedBirds, birds]);
 
-  /* make a new deck of the selected birds each time the user selects a different group
-   of birds to play with */
-  const createDeck = () => {
-    let deck = [];
-    if (selectedBirds.allBirds) {
-      for (let bird of birds) {
-        deck.push(bird);
-      }
-    } else {
-      for (let bird of birds) {
-        if (selectedBirds[bird.category]) {
-          deck.push(bird);
-        }
-      }
-    }
-    return deck;
-  };
   //moves card to pile on the right
   function moveToCompletedPile() {
     setCurrentDeck((prevDeck) => {
