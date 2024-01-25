@@ -21,12 +21,8 @@ const Instructions = () => {
 
   return (
     <div className="sidebar">
-      <div className="instructions">
-        <div
-          className="sidebarDropdown"
-          id="instructions"
-          onClick={toggleSidebar}
-        >
+      <div className="instructions" onClick={toggleSidebar}>
+        <div className="sidebarDropdown" id="instructions">
           <PlusSign className="dropdownButton" />
           <div className="sidebarHeader dropdownHeader">How to Play</div>
         </div>
@@ -59,8 +55,8 @@ const Instructions = () => {
           </div>
         </div>
       )}
-      <div className="about">
-        <div className="sidebarDropdown" id="about" onClick={toggleSidebar}>
+      <div className="about" onClick={toggleSidebar}>
+        <div className="sidebarDropdown" id="about">
           <PlusSign className="dropdownButton" />
           <div className="sidebarHeader dropdownHeader">About</div>
         </div>

@@ -68,7 +68,18 @@ img {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  padding-left: 3em;
 }
+.instructions,
+.about {
+  padding-bottom: 0.7em;
+}
+.sidebar {
+  position: relative;
+}
+.about {
+}
+
 .instructionsText {
   margin-left: 2.25em;
   margin-right: 1.75em;
